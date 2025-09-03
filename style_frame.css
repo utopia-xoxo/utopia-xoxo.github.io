@@ -1,0 +1,134 @@
+@charset "Shift_Jis";
+*{
+   margin:0;
+   padding:0;
+   font-family	:osaka,Century Gothic,Chicago,sans-serif;
+   font-style	:normal;
+   font-weight	:normal;
+   font-variant	:normal;
+	font-size: 10px;
+   line-height	:180%;
+   color	:#000;
+}
+
+/* スクロールバーの設定をしてます */
+
+html,body
+{
+ scrollbar-face-color:white;
+scrollbar-highlight-color:white; scrollbar-shadow-color:white;
+scrollbar-3dlight-color:white; scrollbar-arrow-color:#747474;
+scrollbar-track-color:white; scrollbar-darkshadow-color:white;
+}
+
+/* ↑ここまで↑ */
+
+/* リンクの設定をしています */
+
+
+A{text-decoration:underline;}
+A{color:#000;} 
+a:hover { color:#000; background-color : #ffa040; text-decoration:none;}a{cursor:default;}
+
+/* ↑ここまで↑ */
+
+
+p{
+  margin-top	:20px;
+  margin-bottom	:20px;
+ }
+
+img{
+   border	:0px;
+   }
+
+input,textarea,select,option{
+   margin-bottom:0.1em;
+   border:solid 1px #ccc;
+   color:#888;
+   background-color:#fff;
+   }
+
+
+/* framepageメイン画像を設定しています */
+#frame{
+	margin:0px auto;
+	padding:0px;
+	width:780px;
+	height:670px;
+	background-image:url(http://sweety.jp/ykm/bg-frame.jpg);
+	background-repeat:no-repeat;
+	background-position:left 0px;
+}
+/* ↑ここまで↑ */
+
+.page{
+	padding:112px 0px 0px 145px;
+	width:488px;
+     }
+
+/* frameメニュー部分の設定です */
+
+.menu-other{
+	margin:10px 0px 0px 0px;
+	padding:0px 0px 0px 20px;
+     }
+
+.menu-other ul{
+	margin:0px;
+	padding:0px;
+   }
+
+.menu-other li{
+	display:inline;
+	padding:0px 10px 0px 0px;
+   }
+
+.menu-other a{
+   padding-left:15px;
+   background-image   :url(http://sweety.jp/ykm/list.png);
+   background-repeat  :no-repeat;
+   background-position:0 50%;
+   text-decoration:none;
+   }
+
+.menu-other A{color:#000;text-decoration:none;}
+.menu-other a:hover  {color:#fff;
+		text-decoration : none;
+		border-bottom:1px dotted;
+                background-image:url(http://sweety.jp/ykm/list02.png);
+                }
+
+/* ↑ここまで↑ */
+
+
+/* iframe部分の設定です */
+
+.main{
+	margin:0px 0px 0px 148px;
+	padding:0px 0px 0px 0px;
+     }
+
+
+/* ↑ここまで↑ */
+
+
+/* iframeページの文章を入れています */
+
+.text{
+	margin:8px;
+	padding:8px 8px 8px 8px;
+}
+
+/* ↑ここまで↑ */
+
+/* footer部分の設定です */
+.footer{
+	margin:0px auto;
+	padding:0px 20px 0px 0px;
+	clear:both;
+	width:760px;
+	text-align:right;
+	letter-spacing:0.5em;
+	color:#888888;
+   }

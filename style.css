@@ -1,0 +1,109 @@
+@charset "Shift_Jis";
+
+*{
+   margin:0;
+   padding:0;
+   font-family	:osaka,Century Gothic,Chicago,sans-serif;
+   font-style	:normal;
+   font-weight	:normal;
+   font-variant	:normal;
+	font-size: 10px;
+   line-height	:180%;
+   color	:#eae6ed;
+}
+
+/* スクロールバーの設定をしてます */
+
+html,body
+{
+  background-color:#eceae4;
+  scrollbar-face-color: black;
+  scrollbar-highlight-color: black;
+  scrollbar-shadow-color: black;
+  scrollbar-3dlight-color: black;
+  scrollbar-arrow-color: white;
+  scrollbar-track-color: black;
+  scrollbar-darkshadow-color: white;
+}
+
+/* ↑ここまで↑ */
+
+
+/* リンクの設定をしています */
+
+A{text-decoration:none;}
+A{color:#000;text-decoration:none;}
+A:hover{color:#909f7f;text-decoration:none;}
+
+/* ↑ここまで↑ */
+
+p{
+  margin-top	:20px;
+  margin-bottom	:20px;
+ }
+
+img{
+   border	:0px;
+   }
+
+
+input,textarea,select,option{
+   margin-bottom:0.1em;
+   border:solid 1px #ccc;
+   color:#888;
+   background-color:#fff;
+   }
+
+
+/* メイン画像を設定しています */
+#box{
+	margin:0px auto;
+	width:780px;
+	height:670px;
+	background-image:url(http://sweety.jp/ykm/main.jpg);
+	background-repeat:no-repeat;
+}
+/* ↑ここまで↑ */
+
+.page{
+	padding:175px 0px 0px 145px;
+	width:488px;
+     }
+
+/* site title部分。h1のアイコンが無いバージョンです */
+
+.title{
+	margin:0px 0px 0px 30px;
+	padding:0px 0px 0px 10px;
+	font-size:large;
+	font-weight:bold;
+	letter-spacing:0.5em;
+	color:#726c60;
+  }
+
+/* ↑ここまで↑ */
+
+
+
+/* メニュー部分の設定です */
+
+.menu{
+	font-size: 10px;
+	color:black;
+	float:right;
+	width:240px;
+	margin:0px 0px 0px 0px;
+	padding:80px 0px 0px 0px;
+     }
+
+/* ↑ここまで↑ */
+
+/* footer部分の設定です */
+.footer{
+	padding:305px 20px 0px 0px;
+	clear:both;
+	width:760px;
+	text-align:right;
+	letter-spacing:0.5em;
+	color:#888888;
+   }
