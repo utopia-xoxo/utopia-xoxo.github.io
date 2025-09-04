@@ -215,7 +215,7 @@ input[type="submit"].formButton {
 
 /* ボタンにマウスを乗せたとき */
 input[type="submit"].formButton:hover {
-  background: #f8d8e6; /* 少し濃いピンクに変化 */
+  background: #af7c3f; /* リンクと同じ色に変化 */
 }
 
 /* ボタンをクリックしたとき */
@@ -728,6 +728,7 @@ h4 + .shortList {
   fill: #af7c3f; /* ホバー時の色（お好みで変更可） */
 
 }
+
 
 
 
