@@ -201,15 +201,6 @@ textarea {
   color: #aaa;
   font-size: 0.9rem;
 }
-.enter {
-    padding: 5px;
-}
-.button {
-    padding: 5px 10px;
-    background: var(--lightColor);
-}
-
-
 /* メールフォーム */
 .mailForm {
     display: flex;
@@ -222,6 +213,7 @@ textarea {
 .mailForm .button {
     margin-right: auto;
 }
+
 /* メールフォームの送信ボタン */
 input[type="submit"].formButton {
   -webkit-appearance: none;
@@ -740,6 +732,7 @@ h4 + .shortList {
   fill: #af7c3f; /* ホバー時の色（お好みで変更可） */
 
 }
+
 
 
 
