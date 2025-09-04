@@ -170,7 +170,7 @@ textarea {
 .formInput {
   width: 100%;           /* 親要素の幅いっぱいに広げる */
   max-width: 350px;      /* PC画面では最大260pxに制限 */
-  padding: 10px 30px;     /* 中の文字と枠の余白 */
+  padding: 10px 20px;     /* 中の文字と枠の余白 */
   border-radius: 8px;    /* 角を丸める */
   border: 1px solid var(--darkColor); /* 通常時の枠線 */
   background: #fff;      /* 入力欄の背景色を白に固定 */
@@ -579,17 +579,25 @@ h4 + .shortList {
          max-width: 400px;
         height: 100vh;
     }
-.navTrigger::before {
-    content: '≡';
-    display: inline-block;
-    height: 50px;          /* ← 高さを広げる */
-    padding: 0 15px;       /* ← 余白を増やす */
-    font-size: 2rem;       /* ← ハンバーガーアイコンの大きさ */
-    line-height: 50px;     /* ← 縦位置を中央に */
-    backdrop-filter: blur(2px);
-    background: #fffb;
-}
-
+.navTrigger {
+    display: block;
+    position: absolute;
+    top: 0; left: 100%;
+} 
+    .view .navTrigger {
+        width: calc(100vw - 250px);
+        height: 100vh;
+    }
+    .navTrigger::before {
+        content: '≡';
+        display: inline-block;
+        height: 40px;
+        padding: 0 10px;
+        backdrop-filter: blur(2px);
+        background: #fffb;
+        line-height: 40px;
+        text-transform: uppercase;
+    }
     .view .navTrigger::before {
         content: '×';
         color: #777
@@ -728,6 +736,7 @@ h4 + .shortList {
   height: 60px;
   z-index: 2000 !important;
 }
+
 
 
 
