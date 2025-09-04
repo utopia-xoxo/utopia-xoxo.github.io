@@ -574,13 +574,6 @@ h4 + .shortList {
 
 /* ===== ハンバーガーメニュー：元に戻した版 ===== */
 
-/* デフォルトでは非表示 */
-.navTrigger {
-  display: none;
-}
-
-/* スマホサイズのときだけ表示 */
-@media (max-width: 850px) {
   /* ハンバーガーアイコン */
   .navTrigger {
     display: block;
@@ -739,4 +732,5 @@ h4 + .shortList {
   fill: #af7c3f; /* ホバー時の色（お好みで変更可） */
 
 }
+
 
