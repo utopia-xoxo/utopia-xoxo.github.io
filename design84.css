@@ -166,31 +166,34 @@ textarea {
     font-family: inherit;
     font-size: inherit;
 }
-/* フォーム系のリセット */
+/* === フォーム共通リセット === */
 input,
 textarea {
-    -webkit-appearance: none;
-    appearance: none;
-    border: var(--darkColor) solid 1px;
-    box-sizing: border-box;
-    font-family: inherit;
-    font-size: inherit;
+  -webkit-appearance: none;
+  appearance: none;
+  border: var(--darkColor) solid 1px;
+  box-sizing: border-box;
+  font-family: inherit;
+  font-size: inherit;
 }
 
-/* メールフォーム専用のスタイル */
+/* === メールフォーム専用 === */
 .mailForm input[type="text"],
 .mailForm textarea {
+  display: block;
   width: 100%;
-  max-width: 260px;   /* 横幅を少し小さめに */
-  padding: 8px 10px;
-  border-radius: 6px; /* 角丸 */
+  max-width: 260px;   /* 横幅を固定気味に */
+  padding: 10px;
+  border-radius: 8px; /* 角を丸める */
   border: 1px solid var(--darkColor);
   background: #fff;
   font-family: inherit;
   font-size: 0.95rem;
-  margin-bottom: 20px; /* 入力欄どうしの間を広めに */
+  margin: 10px auto 20px; /* 上下に余白を確保 */
   box-sizing: border-box;
+  transition: border-color 0.3s, box-shadow 0.3s;
 }
+
 /* フォーカス時の効果 */
 .mailForm input[type="text"]:focus,
 .mailForm textarea:focus {
@@ -205,8 +208,6 @@ textarea {
   color: #aaa;
   font-size: 0.9rem;
 }
-
-
 .enter {
     padding: 5px;
 }
@@ -254,6 +255,14 @@ input[type="submit"].formButton:hover {
 /* 押したとき */
 input[type="submit"].formButton:active {
   background: #d9dede;
+}
+@media(max-width: 768px) {
+  .mailForm input[type="text"],
+  .mailForm textarea {
+    max-width: 90%;   /* 画面幅に合わせて広げる */
+    font-size: 1rem;  /* 少し見やすく */
+    margin: 10px auto 18px;
+  }
 }
 
 
@@ -738,6 +747,7 @@ h4 + .shortList {
   fill: #af7c3f; /* ホバー時の色（お好みで変更可） */
 
 }
+
 
 
 
