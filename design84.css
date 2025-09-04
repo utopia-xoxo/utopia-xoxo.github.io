@@ -223,28 +223,25 @@ input[type="submit"].formButton:hover {
 input[type="submit"].formButton:active {
   background: #d9dede; /* グレー寄りに変化 */
 }
+
 @media(max-width: 768px) {
   /* contactフォームのpタグ */
   #link_contact form p {
     margin: 0 0 15px 0;   /* ← 左寄せ */
   }
-
-  /* 入力欄 */
-  .formInput {
-    width: 100%;
-    max-width: 90%;       /* ← スマホでは90%幅 */
-　 font-size: 0.9rem;
-    margin: 0 0 15px 0;   /* ← 左寄せ */
+ .formInput {
+    width: 90%;          /* 入力欄は広め */
+    margin: 0 0 15px 0;  /* 左右の余白なしで左端にそろえる */
     display: block;
   }
 
-  /* 送信ボタン */
   .formButton {
-    display: block;
-    width: 100%;
-    max-width: 200px;     /* ← 入力欄より小さめだけど左端はそろえる */
-    margin: 0;            /* ← 左端そろえ */
-    text-align: center;   /* ← ボタン文字だけ中央 */
+    display: inline-block; /* ← ボタンは必要なサイズだけ */
+    margin: 0;             /* ← 左端にそろえる */
+    padding: 6px 14px;
+    font-size: 1rem;
+    max-width: none;       /* ← 制限解除 */
+    border-radius: 6px;    /* ← 角丸維持 */
   }
 }
 
@@ -732,6 +729,7 @@ h4 + .shortList {
   fill: #af7c3f; /* ホバー時の色（お好みで変更可） */
 
 }
+
 
 
 
