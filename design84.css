@@ -582,12 +582,12 @@ h4 + .shortList {
 /* ハンバーガーアイコン */
 .navTrigger {
   display: block;
-  position: fixed;   /* ← absolute じゃなく fixed */
+  position: fixed;
   top: 10px;
-  right: 10px;       /* ← 右上に配置 */
+  right: 10px;
   width: 60px;
   height: 60px;
-  z-index: 2001;     /* ← メニュー本体より前に出す */
+  z-index: 2001; /* ← navsより手前に */
 }
 .navTrigger::before {
   content: '≡';
@@ -610,15 +610,12 @@ h4 + .shortList {
   background: #fffb;
   position: fixed;
   top: 0;
-  right: 0;                 /* ← 右側に固定 */
-  width: 250px;             /* ← 必要な幅を指定 */
+  right: 0;
+  width: 250px;
   height: 100vh;
-  transform: translateX(100%); /* ← 右に隠す */
+  transform: translateX(100%);
   transition: .5s;
-  z-index: 2000;            /* ← トリガーの後ろ */
-}
-.view.navs {
-  transform: translateX(0); /* ← 表示時 */
+  z-index: 2000; /* ← navTrigger より後ろに */
 }
 
     .sideNav {
@@ -737,5 +734,6 @@ h4 + .shortList {
   fill: #af7c3f; /* ホバー時の色（お好みで変更可） */
 
 }
+
 
 
