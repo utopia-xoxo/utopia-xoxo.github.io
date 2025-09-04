@@ -191,7 +191,7 @@ textarea {
 /* 入力欄に表示されるプレースホルダー（薄い文字） */
 .formInput::placeholder {
   color: #aaa;        /* 薄いグレー文字に */
-  font-size: 1.5rem;  /* 文字を少し小さく */
+  font-size: 1rem;  /* 文字を少し小さく */
 }
 
 /* === 送信ボタン === */
@@ -723,6 +723,7 @@ h4 + .shortList {
   fill: #af7c3f; /* ホバー時の色（お好みで変更可） */
 
 }
+
 
 
 
