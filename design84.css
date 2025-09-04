@@ -229,7 +229,7 @@ input[type="submit"].formButton:active {
     margin: 0 0 15px 0;   /* ← 左寄せ */
   }
  .formInput {
-    width: 60%;          /* 入力欄は広め */
+    width: 750%;          /* 入力欄は広め */
     margin: 0 0 15px 0;  /* 左右の余白なしで左端にそろえる */
     display: block;
   }
@@ -728,6 +728,7 @@ h4 + .shortList {
   fill: #af7c3f; /* ホバー時の色（お好みで変更可） */
 
 }
+
 
 
 
