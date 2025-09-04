@@ -162,7 +162,6 @@ textarea {
     -webkit-appearance: none;
     appearance: none;
     border: var(--darkColor) solid 1px;
-    border-radius: 0;
     box-sizing: border-box;
     font-family: inherit;
     font-size: inherit;
@@ -723,4 +722,5 @@ h4 + .shortList {
   fill: #af7c3f; /* ホバー時の色（お好みで変更可） */
 
 }
+
 
