@@ -590,16 +590,17 @@ h4 + .shortList {
         width: calc(100vw - 250px);
         height: 100vh;
     }
-    .navTrigger::before {
-        content: '≡';
-        display: inline-block;
-        height: 40px;
-        padding: 0 10px;
-        backdrop-filter: blur(2px);
-        background: #fffb;
-        line-height: 40px;
-        text-transform: uppercase;
-    }
+.navTrigger::before {
+    content: '≡';
+    display: inline-block;
+    height: 50px;          /* ← 高さを広げる */
+    padding: 0 15px;       /* ← 余白を増やす */
+    font-size: 2rem;       /* ← ハンバーガーアイコンの大きさ */
+    line-height: 50px;     /* ← 縦位置を中央に */
+    backdrop-filter: blur(2px);
+    background: #fffb;
+}
+
     .view .navTrigger::before {
         content: '×';
         color: #777
@@ -728,6 +729,7 @@ h4 + .shortList {
   fill: #af7c3f; /* ホバー時の色（お好みで変更可） */
 
 }
+
 
 
 
