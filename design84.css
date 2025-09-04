@@ -228,12 +228,13 @@ input[type="submit"].formButton:active {
     max-width: 90%;
     font-size: 1rem;
     margin: 10px auto 18px; /* ← 中央寄せ */
+  } /* ← この閉じカッコを忘れない！ */
 
   .formButton {
-    display: block;       /* ← 横幅いっぱい扱い */
-    margin: 10px auto;    /* ← 中央寄せ */
-    max-width: 200px;     /* ← ボタンが広がりすぎないように */
-    text-align: center;   /* ← 文字を中央に */
+    display: block;       /* 横幅いっぱい扱い */
+    margin: 10px auto;    /* 中央寄せ */
+    max-width: 200px;     /* ボタンが広がりすぎないように */
+    text-align: center;   /* 文字を中央に */
   }
 }
 
@@ -719,6 +720,7 @@ h4 + .shortList {
   fill: #af7c3f; /* ホバー時の色（お好みで変更可） */
 
 }
+
 
 
 
