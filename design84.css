@@ -170,7 +170,7 @@ textarea {
 .formInput {
   width: 100%;           /* 親要素の幅いっぱいに広げる */
   max-width: 350px;      /* PC画面では最大260pxに制限 */
-  padding: 10px 20px;     /* 中の文字と枠の余白 */
+  padding: 10px 30px;     /* 中の文字と枠の余白 */
   border-radius: 8px;    /* 角を丸める */
   border: 1px solid var(--darkColor); /* 通常時の枠線 */
   background: #fff;      /* 入力欄の背景色を白に固定 */
@@ -580,22 +580,20 @@ h4 + .shortList {
         height: 100vh;
     }
 .navTrigger::before {
-  content: '≡';
-  display: inline-block;
-  width: 100%;
-  height: 100%;
-  font-size: 2rem;
-  line-height: 60px;
-  text-align: center;
-  background: #fffb;
-  backdrop-filter: blur(2px);
-  color: var(--darkColor); /* ← ここを明示 */
-}
-.view .navTrigger::before {
-  content: '×';
-  color: #777; /* ← 閉じるときだけ違う色 */
+    content: '≡';
+    display: inline-block;
+    height: 50px;          /* ← 高さを広げる */
+    padding: 0 15px;       /* ← 余白を増やす */
+    font-size: 2rem;       /* ← ハンバーガーアイコンの大きさ */
+    line-height: 50px;     /* ← 縦位置を中央に */
+    backdrop-filter: blur(2px);
+    background: #fffb;
 }
 
+    .view .navTrigger::before {
+        content: '×';
+        color: #777
+    }
     .navs {
         background: #fffb;
         transform: translateX(-100%);
@@ -730,6 +728,7 @@ h4 + .shortList {
   height: 60px;
   z-index: 2000 !important;
 }
+
 
 
 
