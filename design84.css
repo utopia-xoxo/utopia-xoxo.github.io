@@ -163,7 +163,7 @@ textarea {
   border: var(--darkColor) solid 1px; /* デフォルトで薄い枠を付ける */
   box-sizing: border-box;   /* paddingやborderを含めてサイズを計算 */
   font-family: inherit;     /* サイト全体と同じフォントにする */
-  font-size: inherit;       /* 親要素のフォントサイズを引き継ぐ */
+  font-size: 1.2rem;    /* 少し小さめの文字サイズ */
 }
 
 /* === 入力欄（テキストボックス・本文欄） === */
@@ -202,7 +202,7 @@ input[type="submit"].formButton {
   padding: 6px 16px;       /* ボタン内の余白 */
   background: var(--lightColor); /* パステルピンク背景 */
   color: #000;             /* 文字色は黒 */
-  font-size: 1rem;         /* ボタン文字の大きさ */
+  font-size: 1.2rem;         /* ボタン文字の大きさ */
   font-family: inherit;
   font-weight: normal;     /* 太字を解除 */
   border: 1px solid var(--darkColor); /* 枠線 */
@@ -227,17 +227,18 @@ input[type="submit"].formButton:active {
   .formInput {
     max-width: 90%;
     font-size: 1rem;
-    margin: 10px auto 18px; /* ← 中央寄せ */
-    display: block;       /* ← 入力欄を中央寄せ */
-  } /* ← この閉じカッコを忘れない！ */
+    margin: 10px auto 18px;
+    display: block;       /* ← 中央寄せ */
+  }
 
   .formButton {
-    display: block;       /* 横幅いっぱい扱い */
-    margin: 10px auto;    /* 中央寄せ */
-    max-width: 200px;     /* ボタンが広がりすぎないように */
-    text-align: center;   /* 文字を中央に */
+    display: block;       /* ← ボタンもblock化 */
+    margin: 10px auto;    /* ← 入力欄と同じ中央寄せ */
+    max-width: 200px;     /* ← ボタンが広がりすぎないように */
+    text-align: center;
   }
 }
+
 
 
 /* 強調 */
@@ -721,6 +722,7 @@ h4 + .shortList {
   fill: #af7c3f; /* ホバー時の色（お好みで変更可） */
 
 }
+
 
 
 
