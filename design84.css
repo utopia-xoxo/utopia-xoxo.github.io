@@ -203,7 +203,7 @@ input[type="submit"]
   padding: 6px 16px;       /* ボタン内の余白 */
   background: var(--lightColor); /* パステルピンク背景 */
   color: #000;             /* 文字色は黒 */
-  font-size: 1.2rem;         /* ボタン文字の大きさ */
+  font-size: 1.1rem;         /* ボタン文字の大きさ */
   font-family: inherit;
   font-weight: normal;     /* 太字を解除 */
   border: 1px solid var(--darkColor); /* 枠線 */
@@ -726,6 +726,7 @@ h4 + .shortList {
   fill: #af7c3f; /* ホバー時の色（お好みで変更可） */
 
 }
+
 
 
 
