@@ -167,6 +167,34 @@ textarea {
     font-family: inherit;
     font-size: inherit;
 }
+/* 入力欄（名前・本文）の共通デザイン */
+.mailForm input[type="text"],
+.mailForm textarea {
+  width: 100%;
+  padding: 10px;
+  border-radius: 25px; /* 角丸くする */
+  border: 1px solid var(--darkColor);
+  background: #fff;
+  font-family: inherit;
+  font-size: 1rem;
+  box-sizing: border-box;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+/* フォーカス時の効果 */
+.mailForm input[type="text"]:focus,
+.mailForm textarea:focus {
+  border-color: var(--lightColor);
+  outline: none;
+  box-shadow: 0 0 8px rgba(244, 155, 199, 0.4);
+}
+
+/* プレースホルダー文字の色 */
+.mailForm input[type="text"]::placeholder,
+.mailForm textarea::placeholder {
+  color: #aaa; /* グレー */
+  font-size: 0.95rem;
+}
 .enter {
     padding: 5px;
 }
@@ -696,4 +724,5 @@ h4 + .shortList {
 
 .wave textPath a:hover {
   fill: #af7c3f; /* ホバー時の色（お好みで変更可） */
+
 }
