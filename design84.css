@@ -228,6 +228,7 @@ input[type="submit"].formButton:active {
     max-width: 90%;
     font-size: 1rem;
     margin: 10px auto 18px; /* ← 中央寄せ */
+    display: block;       /* ← 入力欄を中央寄せ */
   } /* ← この閉じカッコを忘れない！ */
 
   .formButton {
@@ -720,6 +721,7 @@ h4 + .shortList {
   fill: #af7c3f; /* ホバー時の色（お好みで変更可） */
 
 }
+
 
 
 
