@@ -223,12 +223,16 @@ input[type="submit"].formButton:active {
   background: #d9dede; /* グレー寄りに変化 */
 }
 
-/* === スマホ対応 === */
 @media(max-width: 768px) {
   .formInput {
-    max-width: 90%;        /* 画面幅に合わせて広がる */
-    font-size: 1rem;       /* 文字を少し大きく */
-    margin: 10px auto 18px; /* 入力欄の上下余白を広めにする */
+    max-width: 90%;
+    font-size: 1rem;
+    margin: 10px auto 18px; /* ← 中央寄せ */
+  }
+
+  .formButton {
+    margin: 10px auto;    /* ← 中央寄せ */
+    text-align: center;   /* ← 文字を中央に */
   }
 }
 
@@ -714,6 +718,7 @@ h4 + .shortList {
   fill: #af7c3f; /* ホバー時の色（お好みで変更可） */
 
 }
+
 
 
 
