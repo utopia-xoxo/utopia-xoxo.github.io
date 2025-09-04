@@ -226,11 +226,11 @@ input[type="submit"].formButton:active {
 @media(max-width: 768px) {
   /* contactフォームのpタグ */
   #link_contact form p {
-    margin: 0 0 15px 0;   /* ← 左寄せ */
+    margin: 0 0 20px 0;   /* ← 左寄せ */
   }
  .formInput {
-    width: calc(75% - 15px); /* ← 横幅を調整 */
-    margin: 0 0 15px 15px;   /* ← 左に15px余白 */
+    width: calc(75% - 20px); /* ← 横幅を調整 */
+    margin: 0 0 20px 20px;   /* ← 左に15px余白 */
     display: block;
   }
 
