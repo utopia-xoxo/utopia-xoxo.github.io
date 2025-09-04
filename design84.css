@@ -223,26 +223,31 @@ input[type="submit"].formButton:hover {
 input[type="submit"].formButton:active {
   background: #d9dede; /* グレー寄りに変化 */
 }
-/* contactフォーム内の段落だけ余白を調整 */
-#link_contact form p {
-  margin: 0 auto 15px;  /* 左右の2emを消して中央寄せ */
-}
 @media(max-width: 768px) {
-  .formInput {
-    max-width: 90%;
-    font-size: 0.9rem;
-    margin: 10px auto 18px;
-    display: block;       /* ← 中央寄せ */
+  /* contactフォームのpタグ */
+  #link_contact form p {
+    margin: 0 0 15px 0;   /* ← 左寄せ */
   }
 
+  /* 入力欄 */
+  .formInput {
+    width: 100%;
+    max-width: 90%;       /* ← スマホでは90%幅 */
+　 font-size: 0.9rem;
+    margin: 0 0 15px 0;   /* ← 左寄せ */
+    display: block;
+  }
+
+  /* 送信ボタン */
   .formButton {
-    display: block;       /* ← ボタンもblock化 */
-　　font-size: 0.9rem;
-  　margin: 10px 0 0;   /* ← 左端そろえ（autoを消すのがポイント） */
-    max-width: 200px;     /* ← ボタンが広がりすぎないように */
-    text-align: center;
+    display: block;
+    width: 100%;
+    max-width: 200px;     /* ← 入力欄より小さめだけど左端はそろえる */
+    margin: 0;            /* ← 左端そろえ */
+    text-align: center;   /* ← ボタン文字だけ中央 */
   }
 }
+
 
 
 
@@ -727,6 +732,7 @@ h4 + .shortList {
   fill: #af7c3f; /* ホバー時の色（お好みで変更可） */
 
 }
+
 
 
 
