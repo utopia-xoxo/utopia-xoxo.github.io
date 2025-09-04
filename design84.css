@@ -579,42 +579,48 @@ h4 + .shortList {
          max-width: 400px;
         height: 100vh;
     }
+/* ハンバーガーアイコン */
 .navTrigger {
-    display: block;
-    position: absolute;
-    top: 0; left: 100%;
-} 
-    .view .navTrigger {
-        width: calc(100vw - 250px);
-        height: 100vh;
-    }
-    .navTrigger::before {
-        content: '≡';
-        display: inline-block;
-        height: 40px;
-        padding: 0 10px;
-        backdrop-filter: blur(2px);
-        background: #fffb;
-        line-height: 40px;
-        text-transform: uppercase;
-    }
-    .view .navTrigger::before {
-        content: '×';
-        color: #777
-    }
+  display: block;
+  position: fixed;   /* ← absolute じゃなく fixed */
+  top: 10px;
+  right: 10px;       /* ← 右上に配置 */
+  width: 60px;
+  height: 60px;
+  z-index: 2001;     /* ← メニュー本体より前に出す */
+}
+.navTrigger::before {
+  content: '≡';
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  font-size: 2rem;
+  background: #fffb;
+  backdrop-filter: blur(2px);
+}
+.view .navTrigger::before {
+  content: '×';
+  color: #777;
+}
+
+/* ナビゲーション本体 */
 .navs {
   background: #fffb;
   position: fixed;
   top: 0;
-  right: 0;                 /* ← 右に固定 */
-  width: 250px;             /* ← 幅を指定 */
+  right: 0;                 /* ← 右側に固定 */
+  width: 250px;             /* ← 必要な幅を指定 */
   height: 100vh;
   transform: translateX(100%); /* ← 右に隠す */
   transition: .5s;
+  z-index: 2000;            /* ← トリガーの後ろ */
 }
 .view.navs {
-  transform: translateX(0); /* ← 表示する */
+  transform: translateX(0); /* ← 表示時 */
 }
+
     .sideNav {
         display: flex;
          flex-direction: column;
@@ -731,4 +737,5 @@ h4 + .shortList {
   fill: #af7c3f; /* ホバー時の色（お好みで変更可） */
 
 }
+
 
