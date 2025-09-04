@@ -570,7 +570,9 @@ h4 + .shortList {
     .textWrap {
         font-size: 1em;
     }
-   .navWrap {
+
+
+    .navWrap {
         display: flex;
          justify-content: space-evenly;
         width: 80vw;
@@ -680,6 +682,9 @@ h4 + .shortList {
     }
 }
 
+
+
+
 /* ===== index（トップページ）だけ画面固定 ===== */
 @media screen and (max-width: 768px) {
   body.index {
@@ -727,6 +732,7 @@ h4 + .shortList {
   fill: #af7c3f; /* ホバー時の色（お好みで変更可） */
 
 }
+
 
 
 
