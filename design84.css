@@ -175,7 +175,7 @@ textarea {
   border: 1px solid var(--darkColor); /* 通常時の枠線 */
   background: #fff;      /* 入力欄の背景色を白に固定 */
   font-family: inherit;  /* 全体と同じフォント */
-  font-size: 1.3rem;    /* 少し小さめの文字サイズ */
+  font-size: 1.2rem;    /* 少し小さめの文字サイズ */
   margin-bottom: 15px;   /* 下の要素との間隔を確保 */
   box-sizing: border-box;
   display: block;        /* 横幅指定を効かせるためにblock化 */
@@ -191,7 +191,7 @@ textarea {
 /* 入力欄に表示されるプレースホルダー（薄い文字） */
 .formInput::placeholder {
   color: #aaa;        /* 薄いグレー文字に */
-  font-size: 1rem;  /* 文字を少し小さく */
+  font-size: 1.2rem;  /* 文字を少し小さく */
 }
 
 /* === 送信ボタン === */
@@ -721,6 +721,7 @@ h4 + .shortList {
   fill: #af7c3f; /* ホバー時の色（お好みで変更可） */
 
 }
+
 
 
 
