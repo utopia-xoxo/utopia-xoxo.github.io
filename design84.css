@@ -169,13 +169,13 @@ textarea {
 /* === 入力欄（テキストボックス・本文欄） === */
 .formInput {
   width: 100%;           /* 親要素の幅いっぱいに広げる */
-  max-width: 260px;      /* PC画面では最大260pxに制限 */
-  padding: 8px 10px;     /* 中の文字と枠の余白 */
+  max-width: 300px;      /* PC画面では最大260pxに制限 */
+  padding: 10px 15px;     /* 中の文字と枠の余白 */
   border-radius: 8px;    /* 角を丸める */
   border: 1px solid var(--darkColor); /* 通常時の枠線 */
   background: #fff;      /* 入力欄の背景色を白に固定 */
   font-family: inherit;  /* 全体と同じフォント */
-  font-size: 0.95rem;    /* 少し小さめの文字サイズ */
+  font-size: 1rem;    /* 少し小さめの文字サイズ */
   margin-bottom: 15px;   /* 下の要素との間隔を確保 */
   box-sizing: border-box;
   display: block;        /* 横幅指定を効かせるためにblock化 */
@@ -714,4 +714,5 @@ h4 + .shortList {
   fill: #af7c3f; /* ホバー時の色（お好みで変更可） */
 
 }
+
 
