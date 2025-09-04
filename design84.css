@@ -572,51 +572,57 @@ h4 + .shortList {
     }
 
 
-    .navWrap {
-        display: flex;
-         justify-content: space-evenly;
-        width: 80vw;
-         max-width: 400px;
-        height: 100vh;
-    }
+/* ===== ハンバーガーメニュー：元に戻した版 ===== */
+
+/* デフォルトでは非表示 */
 .navTrigger {
-  display: block;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 60px;
-  height: 60px;
-  z-index: 999;
+  display: none;
 }
 
-.navTrigger::before {
-  content: '≡';
-  display: inline-block;
-  width: 100%;
-  height: 100%;
-  font-size: 2rem;
-  line-height: 60px;  /* 縦中央 */
-  text-align: center;
-  background: #fffb;
-  backdrop-filter: blur(2px);
-}
+/* スマホサイズのときだけ表示 */
+@media (max-width: 850px) {
+  /* ハンバーガーアイコン */
+  .navTrigger {
+    display: block;
+    position: fixed;
+    top: 10px;
+    left: 10px;        /* ← 左上に固定（元の位置） */
+    width: 60px;
+    height: 60px;
+    z-index: 2001;
+  }
+  .navTrigger::before {
+    content: '≡';
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    font-size: 2rem;
+    background: #fffb;
+    backdrop-filter: blur(2px);
+  }
+  .view .navTrigger::before {
+    content: '×';
+    color: #777;
+  }
 
-.view .navTrigger::before {
-  content: '×';
-  color: #777;
+  /* メニュー本体（左からスライド） */
+  .navs {
+    background: #fffb;
+    position: fixed;
+    top: 0;
+    left: 0;                 /* ← 左から出る */
+    width: 250px;
+    height: 100vh;
+    transform: translateX(-100%); /* ← 左に隠す */
+    transition: .5s;
+    z-index: 2000;
+  }
+  .view.navs {
+    transform: translateX(0); /* ← 表示時 */
+  }
 }
-
-/* ナビゲーション（左からスライドイン） */
-.navs {
-  background: #fffb;
-  transform: translateX(-100%);
-  transition: .5s;
-}
-.view.navs {
-  transform: translateX(0);
-}
-
-
     .sideNav {
         display: flex;
          flex-direction: column;
@@ -733,3 +739,4 @@ h4 + .shortList {
   fill: #af7c3f; /* ホバー時の色（お好みで変更可） */
 
 }
+
