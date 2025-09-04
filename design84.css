@@ -523,7 +523,7 @@ h4 + .shortList {
 
 
 /* レスポンシブ調整用 */
-@media(max-width:1024x) {
+@media(max-width:850x) {
     body {
         background: #f4f4f4;
         font-size: 1.2rem;
@@ -738,6 +738,7 @@ h4 + .shortList {
   height: 60px;
   z-index: 2000 !important;
 }
+
 
 
 
