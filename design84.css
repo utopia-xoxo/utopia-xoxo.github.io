@@ -155,17 +155,6 @@ ol {
 
 
 
-/* フォーム系 */
-
-input[type],
-textarea {
-    -webkit-appearance: none;
-    appearance: none;
-    border: var(--darkColor) solid 1px;
-    box-sizing: border-box;
-    font-family: inherit;
-    font-size: inherit;
-}
 /* === フォーム共通リセット === */
 input,
 textarea {
@@ -178,18 +167,22 @@ textarea {
 }
 
 /* === メールフォーム専用 === */
+.mailForm p {
+  margin: 0 0 15px; /* 各入力欄の間隔を広げる */
+}
+
 .mailForm input[type="text"],
 .mailForm textarea {
   display: block;
   width: 100%;
-  max-width: 260px;   /* 横幅を固定気味に */
+  max-width: 260px;    /* 横幅を固定気味に */
   padding: 10px;
-  border-radius: 8px; /* 角を丸める */
+  border-radius: 8px !important; /* 角を丸める（強制） */
   border: 1px solid var(--darkColor);
   background: #fff;
   font-family: inherit;
   font-size: 0.95rem;
-  margin: 10px auto 20px; /* 上下に余白を確保 */
+  margin: 0 auto;      /* 中央寄せ */
   box-sizing: border-box;
   transition: border-color 0.3s, box-shadow 0.3s;
 }
@@ -747,6 +740,7 @@ h4 + .shortList {
   fill: #af7c3f; /* ホバー時の色（お好みで変更可） */
 
 }
+
 
 
 
