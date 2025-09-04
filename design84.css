@@ -154,106 +154,84 @@ ol {
 }
 
 
-
-/* === フォーム共通リセット === */
+/* === フォーム全体の初期リセット === */
+/* ブラウザごとに違う見た目を統一するための基本設定 */
 input,
 textarea {
-  -webkit-appearance: none;
-  appearance: none;
-  border: var(--darkColor) solid 1px;
-  box-sizing: border-box;
-  font-family: inherit;
-  font-size: inherit;
+  -webkit-appearance: none; /* Safari系のデフォルト装飾を消す */
+  appearance: none;         /* デフォルト装飾を消す */
+  border: var(--darkColor) solid 1px; /* デフォルトで薄い枠を付ける */
+  box-sizing: border-box;   /* paddingやborderを含めてサイズを計算 */
+  font-family: inherit;     /* サイト全体と同じフォントにする */
+  font-size: inherit;       /* 親要素のフォントサイズを引き継ぐ */
 }
 
-/* === フォーム共通リセット === */
-input,
-textarea {
-  -webkit-appearance: none;
-  appearance: none;
-  border: var(--darkColor) solid 1px;
-  box-sizing: border-box;
-  font-family: inherit;
-  font-size: inherit;
-}
-
-/* ===== contactフォーム ===== */
+/* === 入力欄（テキストボックス・本文欄） === */
 .formInput {
-  width: 100%;
-  max-width: 260px;
-  padding: 8px 10px;
-  border-radius: 8px;
-  border: 1px solid var(--darkColor);
-  background: #fff;
-  font-family: inherit;
-  font-size: 0.95rem;
-  margin-bottom: 20px;
+  width: 100%;           /* 親要素の幅いっぱいに広げる */
+  max-width: 260px;      /* PC画面では最大260pxに制限 */
+  padding: 8px 10px;     /* 中の文字と枠の余白 */
+  border-radius: 8px;    /* 角を丸める */
+  border: 1px solid var(--darkColor); /* 通常時の枠線 */
+  background: #fff;      /* 入力欄の背景色を白に固定 */
+  font-family: inherit;  /* 全体と同じフォント */
+  font-size: 0.95rem;    /* 少し小さめの文字サイズ */
+  margin-bottom: 15px;   /* 下の要素との間隔を確保 */
   box-sizing: border-box;
-  display: block;
+  display: block;        /* 横幅指定を効かせるためにblock化 */
 }
 
+/* 入力欄にフォーカスしたときの効果 */
 .formInput:focus {
-  border-color: var(--lightColor);
-  outline: none;
-  box-shadow: 0 0 5px rgba(244, 155, 199, 0.4);
+  border-color: var(--lightColor); /* ピンク寄りの枠線に */
+  outline: none;                   /* デフォルトの青い枠を消す */
+  box-shadow: 0 0 5px rgba(244, 155, 199, 0.4); /* ふんわり光る枠 */
 }
 
+/* 入力欄に表示されるプレースホルダー（薄い文字） */
 .formInput::placeholder {
-  color: #aaa;
-  font-size: 0.9rem;
+  color: #aaa;        /* 薄いグレー文字に */
+  font-size: 0.9rem;  /* 文字を少し小さく */
 }
 
-/* 送信ボタン */
-.formButton {
-  padding: 6px 14px;
-  border-radius: 6px;
-  background: var(--lightColor);
-  border: 1px solid var(--darkColor);
-  font-family: inherit;
-  font-size: 0.95rem;
-  cursor: pointer;
-  transition: background 0.3s;
-}
-.formButton:hover {
-  background: #f8d8e6;
-}
-
-@media(max-width: 768px) {
-  .formInput {
-    max-width: 90%;
-    font-size: 1rem;
-    margin: 10px auto 18px;
-  }
-}
-
-
-/* メールフォームの送信ボタン */
+/* === 送信ボタン === */
 input[type="submit"].formButton {
   -webkit-appearance: none;
   appearance: none;
   display: inline-block;
-  padding: 6px 16px;
-  background: var(--lightColor);
-  color: #000;
-  font-size: 1.2rem;
+  padding: 6px 16px;       /* ボタン内の余白 */
+  background: var(--lightColor); /* パステルピンク背景 */
+  color: #000;             /* 文字色は黒 */
+  font-size: 1rem;         /* ボタン文字の大きさ */
   font-family: inherit;
-  font-weight: normal;   /* 太字を解除 */
-  border: 1px solid var(--darkColor); /* 枠を追加 */
-  border-radius: 4px;    /* 角を少し丸める（不要なら消してOK） */
-  cursor: pointer;
+  font-weight: normal;     /* 太字を解除 */
+  border: 1px solid var(--darkColor); /* 枠線 */
+  border-radius: 6px;      /* 角をちょっと丸める */
+  cursor: pointer;         /* マウスカーソルを「手のひら」に */
   box-sizing: border-box;
   text-align: center;
+  transition: background 0.3s; /* ホバー時の色変化をスムーズに */
 }
 
-/* ホバーしたとき（PC用） */
+/* ボタンにマウスを乗せたとき */
 input[type="submit"].formButton:hover {
-  background: #e1e6e7;
+  background: #f8d8e6; /* 少し濃いピンクに変化 */
 }
 
-/* 押したとき */
+/* ボタンをクリックしたとき */
 input[type="submit"].formButton:active {
-  background: #d9dede;
+  background: #d9dede; /* グレー寄りに変化 */
 }
+
+/* === スマホ対応 === */
+@media(max-width: 768px) {
+  .formInput {
+    max-width: 90%;        /* 画面幅に合わせて広がる */
+    font-size: 1rem;       /* 文字を少し大きく */
+    margin: 10px auto 18px; /* 入力欄の上下余白を広めにする */
+  }
+}
+
 
 /* 強調 */
 
@@ -736,3 +714,4 @@ h4 + .shortList {
   fill: #af7c3f; /* ホバー時の色（お好みで変更可） */
 
 }
+
