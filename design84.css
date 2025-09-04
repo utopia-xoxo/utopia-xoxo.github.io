@@ -229,14 +229,14 @@ input[type="submit"].formButton:active {
     margin: 0 0 15px 0;   /* ← 左寄せ */
   }
  .formInput {
-    width: 750%;          /* 入力欄は広め */
-    margin: 0 0 15px 0;  /* 左右の余白なしで左端にそろえる */
+    width: calc(75% - 15px); /* ← 横幅を調整 */
+    margin: 0 0 15px 15px;   /* ← 左に15px余白 */
     display: block;
   }
 
   .formButton {
     display: inline-block; /* ← ボタンは必要なサイズだけ */
-    margin: 0;             /* ← 左端にそろえる */
+    margin-left: 15px;  /* ← ボタンを少し右に寄せる */
     padding: 6px 14px;
     font-size: 1rem;
     max-width: none;       /* ← 制限解除 */
@@ -728,6 +728,7 @@ h4 + .shortList {
   fill: #af7c3f; /* ホバー時の色（お好みで変更可） */
 
 }
+
 
 
 
