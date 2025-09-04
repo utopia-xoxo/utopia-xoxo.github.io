@@ -732,6 +732,48 @@ h4 + .shortList {
   fill: #af7c3f; /* ホバー時の色（お好みで変更可） */
 
 }
+/* ===== contactフォーム ===== */
+.formInput {
+  width: 100%;
+  max-width: 260px;        /* フォームの横幅を調整 */
+  padding: 8px 10px;       /* 内側の余白 */
+  border-radius: 8px;      /* 角丸 */
+  border: 1px solid var(--darkColor);
+  background: #fff;
+  font-family: inherit;
+  font-size: 0.95rem;
+  margin-bottom: 20px;     /* 入力欄どうしの間隔 */
+  box-sizing: border-box;
+  display: block;          /* 縦並び */
+}
+
+/* フォーカス時（クリックしたときの効果） */
+.formInput:focus {
+  border-color: var(--lightColor);
+  outline: none;
+  box-shadow: 0 0 5px rgba(244, 155, 199, 0.4);
+}
+
+/* プレースホルダー文字（例：お名前を入力してください） */
+.formInput::placeholder {
+  color: #aaa;
+  font-size: 0.9rem;
+}
+
+/* 送信ボタン */
+.formButton {
+  padding: 6px 14px;
+  border-radius: 6px;
+  background: var(--lightColor);
+  border: 1px solid var(--darkColor);
+  font-family: inherit;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+.formButton:hover {
+  background: #f8d8e6; /* 少し濃いピンク寄り */
+}
 
 
 
