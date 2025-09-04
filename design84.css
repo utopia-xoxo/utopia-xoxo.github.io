@@ -195,8 +195,7 @@ textarea {
 }
 
 /* === 送信ボタン === */
-input[type="submit"]
-.formButton {
+input[type="submit"].formButton {
   -webkit-appearance: none;
   appearance: none;
   display: inline-block;
@@ -729,3 +728,4 @@ h4 + .shortList {
   fill: #af7c3f; /* ホバー時の色（お好みで変更可） */
 
 }
+
