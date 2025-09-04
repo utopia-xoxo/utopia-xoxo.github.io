@@ -237,6 +237,7 @@ input[type="submit"].formButton:active {
 
   .formButton {
     display: block;       /* ← ボタンもblock化 */
+　　font-size: 0.9rem;
   　margin: 10px 0 0;   /* ← 左端そろえ（autoを消すのがポイント） */
     max-width: 200px;     /* ← ボタンが広がりすぎないように */
     text-align: center;
@@ -726,6 +727,7 @@ h4 + .shortList {
   fill: #af7c3f; /* ホバー時の色（お好みで変更可） */
 
 }
+
 
 
 
