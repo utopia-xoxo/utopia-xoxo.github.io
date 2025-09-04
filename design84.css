@@ -215,7 +215,7 @@ input[type="submit"].formButton {
 
 /* ボタンにマウスを乗せたとき */
 input[type="submit"].formButton:hover {
-  background: #f5b05d; /* リンクと同じ色に変化 */
+  background: #fac07a; /* リンクと同じ色に変化 */
 }
 
 /* ボタンをクリックしたとき */
@@ -523,7 +523,7 @@ h4 + .shortList {
 
 
 /* レスポンシブ調整用 */
-@media(max-width:850px) {
+@media(max-width:1024x) {
     body {
         background: #f4f4f4;
         font-size: 1.2rem;
@@ -738,6 +738,7 @@ h4 + .shortList {
   height: 60px;
   z-index: 2000 !important;
 }
+
 
 
 
