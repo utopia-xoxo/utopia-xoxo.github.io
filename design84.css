@@ -572,95 +572,125 @@ h4 + .shortList {
     }
 
 
-    .navWrap {
-        display: flex;
-         justify-content: space-evenly;
-        width: 80vw;
-         max-width: 400px;
-        height: 100vh;
-    }
-    .navTrigger {
-        display: block;
-　　　　position: fixed;   /* 右上に固定 */
-　　　　top: 10px;
-　　　　right: 20px;
-　　　　width: 70px;
-　　　　height: 70px;
-　　　　z-index: 2001;     /* 最前面に出す */
+/* =========================
+   スマホ用ナビゲーション
+   右からスライドするメニュー
+========================= */
 
-    }
-    .view .navTrigger {
-        width: calc(100vw - 250px);
-        height: 100vh;
-    }
-    .navTrigger::before {
-        content: '≡';
-        display: inline-block;
-        padding: 0 10px;
-        backdrop-filter: blur(2px);
-        background: #fffb;
-        text-transform: uppercase;
-        font-size: 2.5rem;
-　　　　line-height: 70px;
-    }
-    .view .navTrigger::before {
-        content: '×';
-        color: #777
-　　　　 font-size: 2.5rem;
-　　　　 line-height: 70px;
-    }
-    .navs {
-        background: #fffb;
-        transform: translateX(100%);  /* ← 右からスライド */
-        transition: .5s;
-    }
-    .view.navs {
-        transform: translateX(0);
-    }
-    .sideNav {
-        display: flex;
-         flex-direction: column;
-         align-items: center;
-        position: relative;
-        top: 10vh;
-        left: auto;
-        right: 20px;
-        width: 40%;
-         min-width: 130px;
-        font-size: 1rem;
-        z-index: 3;
-    }
-    .sideNav::before {
-        right: 0%;
-        margin-left: auto;
-    }
-    .sideNav li a {
-        display: flex;
-         flex-direction: column;
-         align-items: center;
-        padding: 0 3px 0 10px;
-        box-sizing: border-box;
-    }
-    .sideNav li a::before {
-        content: none;
-    }
-    .sideNav li > .js_active {
-        position: absolute;
-        left: auto;
-        right: 5px;
-    }
-    .mainNav {
-        display: block;
-        position: static;
-        width: auto;
-        height: 90%;
-        padding: 10px;
-        margin: 10% 0;
-        background: #0000;
-    }
-    .mainNav li {
-        margin-bottom: 1em;
-    }
+/* ==== ナビ全体を包むコンテナ ==== */
+.navWrap {
+    display: flex;
+    justify-content: space-evenly; /* 子要素を均等配置 */
+    width: 80vw;                   /* 画面の8割幅 */
+    max-width: 400px;              /* 大きすぎないよう制限 */
+    height: 100vh;                 /* 画面の高さ全部 */
+}
+
+/* ==== ハンバーガーメニューアイコン本体 ==== */
+.navTrigger {
+    display: block;
+    position: fixed;   /* 右上に固定 */
+    top: 10px;
+    right: 20px;
+    width: 70px;
+    height: 70px;
+    z-index: 2001;     /* 最前面に表示 */
+}
+
+/* メニュー展開時はクリック領域を広げる（全画面右側にかぶせるイメージ） */
+.view .navTrigger {
+    width: calc(100vw - 250px);  /* 左250px分を残して横幅いっぱい */
+    height: 100vh;               /* 縦は全画面 */
+}
+
+/* ==== ハンバーガーアイコンの見た目 ==== */
+.navTrigger::before {
+    content: '≡';                /* 三本線 */
+    display: inline-block;
+    padding: 0 10px;
+    backdrop-filter: blur(2px);  /* 背景をぼかす */
+    background: #fffb;           /* 半透明の白背景 */
+    text-transform: uppercase;
+    font-size: 2.5rem;           /* 大きめ */
+    line-height: 70px;           /* 縦中央に配置 */
+}
+
+/* メニュー展開時は × に変化 */
+.view .navTrigger::before {
+    content: '×';
+    color: #777;                 /* 少し薄いグレー */
+    font-size: 2.5rem;
+    line-height: 70px;
+}
+
+/* ==== スライドするナビ本体 ==== */
+.navs {
+    background: #fffb;           /* 半透明の白背景 */
+    transform: translateX(100%); /* 初期は右の外に隠す */
+    transition: .5s;             /* スライドアニメーション */
+}
+
+/* 表示状態 */
+.view.navs {
+    transform: translateX(0);    /* 右からスライドイン */
+}
+
+/* ==== サイドナビのリスト ==== */
+.sideNav {
+    display: flex;
+    flex-direction: column;      /* 縦並び */
+    align-items: center;         /* 中央揃え */
+    position: relative;
+    top: 10vh;                   /* 上から少し下げる */
+    left: auto;
+    right: 20px;
+    width: 40%;                  /* 幅は画面の4割 */
+    min-width: 130px;            /* 狭すぎ防止 */
+    font-size: 1rem;
+    z-index: 3;                  /* メニューの前面 */
+}
+
+/* 疑似要素は使わないので無効化 */
+.sideNav::before {
+    right: 0%;
+    margin-left: auto;
+}
+
+/* ==== リンク ==== */
+.sideNav li a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 3px 0 10px;
+    box-sizing: border-box;
+}
+
+/* デフォルトの装飾を消す */
+.sideNav li a::before {
+    content: none;
+}
+
+/* アクティブ状態のマーカー位置調整 */
+.sideNav li > .js_active {
+    position: absolute;
+    left: auto;
+    right: 5px;
+}
+
+/* ==== メインナビ領域 ==== */
+.mainNav {
+    display: block;
+    position: static;
+    width: auto;
+    height: 90%;
+    padding: 10px;
+    margin: 10% 0;
+    background: #0000; /* 透明背景 */
+}
+
+.mainNav li {
+    margin-bottom: 1em; /* 各メニュー間に余白 */
+}
 
     .mainHeader {
         flex-direction: column;
@@ -737,86 +767,3 @@ h4 + .shortList {
   fill: #af7c3f; /* ホバー時の色（お好みで変更可） */
 
 }
-/* ===== スマホ用（850px以下） ===== */
-@media(max-width:850px) {
-  /* スライドする全体の白い板 */
-  .navs {
-      position: fixed;
-      top: 0;
-      right: 0;
-      width: 70vw;          /* 画面の7割くらい */
-      max-width: 300px;
-      height: 100vh;
-      background: #fffb;
-      transform: translateX(100%);  /* 初期は右に隠す */
-      transition: .5s;
-      z-index: 1000;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-  }
-
-  /* 表示状態 */
-  .view.navs {
-      transform: translateX(0);
-  }
-
-  /* 中身を白い板に合わせる */
-  .navWrap {
-      width: 100%;          
-      max-width: none;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
-      padding: 60px 20px;   /* 上に余白 */
-      box-sizing: border-box;
-  }
-
-  /* メニューリスト */
-  .sideNav {
-      width: 100%;
-      text-align: center;
-  }
-
-  .sideNav li {
-      margin: 1em 0;
-  }
-
-  .sideNav li a {
-      display: block;
-      padding: 10px;
-  }
-}
-@media(max-width:850px) {
-  .navTrigger {
-    position: fixed;
-    top: 10px;
-    right: 10px;
-    width: 60px;
-    height: 60px;
-    z-index: 1001;
-  }
-  .navTrigger::before {
-    content: '≡';
-    display: block;
-    width: 100%;
-    height: 100%;
-    font-size: 2rem;
-    line-height: 60px;
-    text-align: center;
-    background: #fffb;
-    backdrop-filter: blur(2px);
-  }
-  .view .navTrigger::before {
-    content: '×';
-    color: #777;
-  }
-}
-
-
-
-
-
-
-
