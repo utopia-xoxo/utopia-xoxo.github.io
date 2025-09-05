@@ -631,8 +631,8 @@ h4 + .shortList {
 }
 
 /* 表示状態 */
-.view.navs {
-    transform: translateX(0);    /* 右からスライドイン */
+.view .navs {
+    transform: translateX(0);  /* ← 右からスライドイン */
 }
 
 /* ==== サイドナビのリスト ==== */
@@ -767,3 +767,4 @@ h4 + .shortList {
   fill: #af7c3f; /* ホバー時の色（お好みで変更可） */
 
 }
+
