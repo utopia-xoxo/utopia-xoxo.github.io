@@ -737,6 +737,58 @@ h4 + .shortList {
   fill: #af7c3f; /* ホバー時の色（お好みで変更可） */
 
 }
+/* ===== スマホ用（850px以下） ===== */
+@media(max-width:850px) {
+  /* スライドする全体の白い板 */
+  .navs {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 70vw;          /* 画面の7割くらい */
+      max-width: 300px;
+      height: 100vh;
+      background: #fffb;
+      transform: translateX(100%);  /* 初期は右に隠す */
+      transition: .5s;
+      z-index: 1000;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+  }
+
+  /* 表示状態 */
+  .view.navs {
+      transform: translateX(0);
+  }
+
+  /* 中身を白い板に合わせる */
+  .navWrap {
+      width: 100%;          
+      max-width: none;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      padding: 60px 20px;   /* 上に余白 */
+      box-sizing: border-box;
+  }
+
+  /* メニューリスト */
+  .sideNav {
+      width: 100%;
+      text-align: center;
+  }
+
+  .sideNav li {
+      margin: 1em 0;
+  }
+
+  .sideNav li a {
+      display: block;
+      padding: 10px;
+  }
+}
+
 
 
 
