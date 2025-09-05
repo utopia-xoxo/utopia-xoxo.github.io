@@ -575,8 +575,8 @@ h4 + .shortList {
   /* ===== ハンバーガーメニュー関連 ===== */
 
   /* ハンバーガーメニューアイコン */
-  #navTrigger {
-    display: block !important;   /* ← 最優先で表示 */
+  .navTrigger {
+    display: block !important;   /* ← クラス指定に戻す */
     position: fixed;             /* 右上に固定 */
     top: 15px;                   /* 少し下げる */
     right: 15px;                 /* 右から15px */
@@ -586,7 +586,7 @@ h4 + .shortList {
     cursor: pointer;             /* タップできるとわかるように */
   }
 
-  #navTrigger::before {
+  .navTrigger::before {
     content: '≡';                /* 三本線 */
     display: inline-block;
     width: 100%;
@@ -601,7 +601,7 @@ h4 + .shortList {
   }
 
   /* 開いたときは×に変わる */
-  .view #navTrigger::before {
+  .view .navTrigger::before {
     content: '×';
     color: #777;
   }
@@ -679,7 +679,6 @@ h4 + .shortList {
   }
 }
 
-
 /* ===== index（トップページ）だけ画面固定 ===== */
 @media screen and (max-width: 768px) {
   body.index {
@@ -727,6 +726,7 @@ h4 + .shortList {
   fill: #af7c3f; /* ホバー時の色（お好みで変更可） */
 
 }
+
 
 
 
