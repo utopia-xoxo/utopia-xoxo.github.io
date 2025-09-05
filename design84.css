@@ -581,9 +581,12 @@ h4 + .shortList {
     }
     .navTrigger {
         display: block;
-        position: absolute;
-         top: 0;
-         left: 100%;
+　　　　position: fixed;   /* 右上に固定 */
+　　　　top: 10px;
+　　　　right: 20px;
+　　　　width: 70px;
+　　　　height: 70px;
+　　　　z-index: 2001;     /* 最前面に出す */
 
     }
     .view .navTrigger {
@@ -593,20 +596,22 @@ h4 + .shortList {
     .navTrigger::before {
         content: '≡';
         display: inline-block;
-        height: 40px;
         padding: 0 10px;
         backdrop-filter: blur(2px);
         background: #fffb;
-        line-height: 40px;
         text-transform: uppercase;
+        font-size: 2.5rem;
+　　　　line-height: 70px;
     }
     .view .navTrigger::before {
         content: '×';
         color: #777
+　　　　 font-size: 2.5rem;
+　　　　 line-height: 70px;
     }
     .navs {
         background: #fffb;
-        transform: translateX(-100%);
+        transform: translateX(100%);  /* ← 右からスライド */
         transition: .5s;
     }
     .view.navs {
@@ -732,6 +737,7 @@ h4 + .shortList {
   fill: #af7c3f; /* ホバー時の色（お好みで変更可） */
 
 }
+
 
 
 
