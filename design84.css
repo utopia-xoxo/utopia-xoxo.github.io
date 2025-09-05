@@ -574,37 +574,32 @@ h4 + .shortList {
 
   /* ===== ハンバーガーメニュー関連 ===== */
 
-  /* 三本線のボタン（右上固定・タップ範囲を広め） */
-  .navTrigger {
-      display: block;
-      position: fixed;   /* 画面右上に固定 */
-      top: 10px;
-      right: 15px;
-      width: 70px;       /* タップ範囲大きめ */
-      height: 70px;
-      z-index: 2001;     /* メニューより前面に出す */
-  }
+.navTrigger {
+    display: block;
+    position: fixed;    /* ← 画面右上に固定 */
+    top: 10px;          /* 上から10px */
+    right: 10px;        /* 右から10px */
+    width: 60px;        /* 少し大きめ */
+    height: 60px;
+    z-index: 2001;      /* 最前面に出す */
+}
 
-  /* 三本線アイコン */
-  .navTrigger::before {
-      content: '≡';           /* 三本線 */
-      display: block;
-      width: 100%;
-      height: 100%;
-      font-size: 2.5rem;       /* ← 少し大きめに調整 */
-      line-height: 70px;       /* 縦位置を中央に */
-      text-align: center;
-      background: #fffb;
-      backdrop-filter: blur(2px);
-  }
+.navTrigger::before {
+    content: '≡';
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    font-size: 2.2rem;  /* アイコン大きめ */
+    line-height: 60px;
+    text-align: center;
+    background: #fffb;
+    backdrop-filter: blur(2px);
+}
 
-  /* 開いたときのアイコン（×） */
-  .view .navTrigger::before {
-      content: '×';
-      color: #777;
-      font-size: 2.5rem;
-      line-height: 70px;
-  }
+.view .navTrigger::before {
+    content: '×';
+    color: #777;
+}
 
   /* スライドするメニュー全体 */
   .navs {
@@ -727,6 +722,7 @@ h4 + .shortList {
   fill: #af7c3f; /* ホバー時の色（お好みで変更可） */
 
 }
+
 
 
 
