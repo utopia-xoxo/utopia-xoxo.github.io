@@ -236,7 +236,7 @@ input[type="submit"].formButton:active {
 
   .formButton {
     display: inline-block; /* ← ボタンは必要なサイズだけ */
-    margin-left: 15px;  /* ← ボタンを少し右に寄せる */
+    margin-left: 20px;  /* ← ボタンを少し右に寄せる */
     padding: 6px 14px;
     font-size: 1rem;
     max-width: none;       /* ← 制限解除 */
@@ -574,56 +574,58 @@ h4 + .shortList {
 
   /* ===== ハンバーガーメニュー関連 ===== */
 
-.navTrigger {
-    display: block;
-    position: fixed;
-    top: 15px;         /* 少し下げる（かぶり防止） */
-    right: 15px;       /* 少し左にずらす */
-    width: 50px;       /* ちょっとコンパクトに */
-    height: 50px;
-    z-index: 3000;     /* さらに前面に */
-    cursor: pointer;   /* クリックできると分かるように */
-}
+  /* ハンバーガーメニューアイコン */
+  #navTrigger {
+    display: block !important;   /* ← 最優先で表示 */
+    position: fixed;             /* 右上に固定 */
+    top: 15px;                   /* 少し下げる */
+    right: 15px;                 /* 右から15px */
+    width: 55px;                 /* 少し大きめ */
+    height: 55px;
+    z-index: 3000;               /* 最前面 */
+    cursor: pointer;             /* タップできるとわかるように */
+  }
 
-.navTrigger::before {
-    content: '≡';
+  #navTrigger::before {
+    content: '≡';                /* 三本線 */
     display: inline-block;
     width: 100%;
     height: 100%;
-    font-size: 2.4rem;  /* 少し大きく */
-    line-height: 50px;
+    font-size: 2.4rem;           /* 大きめ */
+    line-height: 55px;           /* 縦中央に配置 */
     text-align: center;
-    color: #333;        /* アイコン色を濃く */
-    background: rgba(255, 255, 255, 0.9);
-    border-radius: 6px; /* 角丸でボタンっぽく */
+    color: #333;                 /* 見やすい色 */
+    background: rgba(255, 255, 255, 0.9); /* 半透明の白背景 */
+    border-radius: 6px;          /* 角丸 */
     box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-}
-
-.view .navTrigger::before {
-    content: '×';
-    color: #777;
-}
-
-  /* スライドするメニュー全体 */
-  .navs {
-      position: fixed;
-      top: 0;
-      right: 0;                 /* 右側から出す */
-      width: 70vw;              /* 画面の7割くらい */
-      max-width: 300px;
-      height: 100vh;
-      background: #fffb;
-      transform: translateX(100%);  /* 初期は右に隠す */
-      transition: .5s;
-      z-index: 2000;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
   }
 
-  /* 表示状態（右からスライドイン） */
+  /* 開いたときは×に変わる */
+  .view #navTrigger::before {
+    content: '×';
+    color: #777;
+  }
+
+  /* ナビ全体（右からスライド） */
+  .navs {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 70vw;
+    max-width: 300px;
+    height: 100vh;
+    background: #fffb;
+    transform: translateX(100%);  /* 初期は右に隠す */
+    transition: .5s;
+    z-index: 2000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* 表示時 */
   .view.navs {
-      transform: translateX(0);
+    transform: translateX(0);
   }
 
   /* メニュー内部のラッパー */
@@ -725,6 +727,7 @@ h4 + .shortList {
   fill: #af7c3f; /* ホバー時の色（お好みで変更可） */
 
 }
+
 
 
 
