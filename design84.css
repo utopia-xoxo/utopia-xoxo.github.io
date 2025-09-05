@@ -522,164 +522,161 @@ h4 + .shortList {
 }
 
 
-/* レスポンシブ調整用 */
+/* ===== スマホ用（850px以下） ===== */
 @media(max-width:850px) {
-    body {
-        background: #f4f4f4;
-        font-size: 1.2rem;
-    }
-    h2 {
-        left: 0;  
-        font-size: 1.2em;
-    }
-    h2::after {
-        height: 50px;
-    }
 
-    *[id^="link_"] {
-        scroll-margin: 40px;
-    }
-    .box {
-        padding: 0;
-    }
-    .allWrap {
-        width: 90%;
-         min-width: 200px;
-         max-width: 500px;
-        margin: auto;
-    }
-    .contentsWrap {
-        width: 100%;
-        min-width: 200px;
-        padding: 10px 0;
-    }
+  body {
+      background: #f4f4f4;
+      font-size: 1.2rem;
+  }
+  h2 {
+      left: 0;  
+      font-size: 1.2em;
+  }
+  h2::after {
+      height: 50px;
+  }
 
-    .nameChange .enter {
-        width: 7em;
-    }
-    .longList {
-        display: block;
-    }
-    .longList li {
-        padding: 10px 20px;
-        margin-bottom: 20px;
-    }
-    .shortList {
-        columns: 1;
-    }
-    .textWrap {
-        font-size: 1em;
-    }
+  *[id^="link_"] {
+      scroll-margin: 40px;
+  }
+  .box {
+      padding: 0;
+  }
+  .allWrap {
+      width: 90%;
+      min-width: 200px;
+      max-width: 500px;
+      margin: auto;
+  }
+  .contentsWrap {
+      width: 100%;
+      min-width: 200px;
+      padding: 10px 0;
+  }
 
+  .nameChange .enter {
+      width: 7em;
+  }
+  .longList {
+      display: block;
+  }
+  .longList li {
+      padding: 10px 20px;
+      margin-bottom: 20px;
+  }
+  .shortList {
+      columns: 1;
+  }
+  .textWrap {
+      font-size: 1em;
+  }
 
-    .navWrap {
-        display: flex;
-         justify-content: space-evenly;
-        width: 80vw;
-         max-width: 400px;
-        height: 100vh;
-    }
-    .navTrigger {
-        display: block;
-        position: absolute;
-         top: 0;
-         left: 100%;
+  /* ===== ハンバーガーメニュー関連 ===== */
 
-    }
-    .view .navTrigger {
-        width: calc(100vw - 250px);
-        height: 100vh;
-    }
-    .navTrigger::before {
-        content: '≡';
-        display: inline-block;
-        height: 40px;
-        padding: 0 10px;
-        backdrop-filter: blur(2px);
-        background: #fffb;
-        line-height: 40px;
-        text-transform: uppercase;
-    }
-    .view .navTrigger::before {
-        content: '×';
-        color: #777
-    }
-    .navs {
-        background: #fffb;
-        transform: translateX(-100%);
-        transition: .5s;
-    }
-    .view.navs {
-        transform: translateX(0);
-    }
-    .sideNav {
-        display: flex;
-         flex-direction: column;
-         align-items: center;
-        position: relative;
-        top: 10vh;
-        left: auto;
-        right: 20px;
-        width: 40%;
-         min-width: 130px;
-        font-size: 1rem;
-        z-index: 3;
-    }
-    .sideNav::before {
-        right: 0%;
-        margin-left: auto;
-    }
-    .sideNav li a {
-        display: flex;
-         flex-direction: column;
-         align-items: center;
-        padding: 0 3px 0 10px;
-        box-sizing: border-box;
-    }
-    .sideNav li a::before {
-        content: none;
-    }
-    .sideNav li > .js_active {
-        position: absolute;
-        left: auto;
-        right: 5px;
-    }
-    .mainNav {
-        display: block;
-        position: static;
-        width: auto;
-        height: 90%;
-        padding: 10px;
-        margin: 10% 0;
-        background: #0000;
-    }
-    .mainNav li {
-        margin-bottom: 1em;
-    }
+  /* 三本線のボタン（右上固定・タップ範囲を広め） */
+  .navTrigger {
+      display: block;
+      position: fixed;   /* 画面右上に固定 */
+      top: 10px;
+      right: 15px;
+      width: 70px;       /* タップ範囲大きめ */
+      height: 70px;
+      z-index: 2001;     /* メニューより前面に出す */
+  }
 
-    .mainHeader {
-        flex-direction: column;
-        margin: 0;
-    }
-    .mainHeader::after {
-        order: -1;
-        flex-basis: auto;
-        width: 200px;
-        height: 200px;
-        margin: 0 auto;
-    }
-    .wave {
-        width: 200px;
-    }
-    .headerInfo {
-        gap: 0;
-        height: auto;
-        padding: 0;
-    }
+  /* 三本線アイコン */
+  .navTrigger::before {
+      content: '≡';           /* 三本線 */
+      display: block;
+      width: 100%;
+      height: 100%;
+      font-size: 2.5rem;       /* ← 少し大きめに調整 */
+      line-height: 70px;       /* 縦位置を中央に */
+      text-align: center;
+      background: #fffb;
+      backdrop-filter: blur(2px);
+  }
 
-    .mainFooter {
-        margin: 50px auto;
-    }
+  /* 開いたときのアイコン（×） */
+  .view .navTrigger::before {
+      content: '×';
+      color: #777;
+      font-size: 2.5rem;
+      line-height: 70px;
+  }
+
+  /* スライドするメニュー全体 */
+  .navs {
+      position: fixed;
+      top: 0;
+      right: 0;                 /* 右側から出す */
+      width: 70vw;              /* 画面の7割くらい */
+      max-width: 300px;
+      height: 100vh;
+      background: #fffb;
+      transform: translateX(100%);  /* 初期は右に隠す */
+      transition: .5s;
+      z-index: 2000;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+  }
+
+  /* 表示状態（右からスライドイン） */
+  .view.navs {
+      transform: translateX(0);
+  }
+
+  /* メニュー内部のラッパー */
+  .navWrap {
+      width: 100%;          
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      padding: 80px 20px;   /* 上に余白 */
+      box-sizing: border-box;
+  }
+
+  /* メニューリスト */
+  .sideNav {
+      width: 100%;
+      text-align: center;
+  }
+  .sideNav li {
+      margin: 1em 0;
+  }
+  .sideNav li a {
+      display: block;
+      padding: 10px;
+  }
+
+  /* ===== ヘッダー・フッター調整 ===== */
+
+  .mainHeader {
+      flex-direction: column;
+      margin: 0;
+  }
+  .mainHeader::after {
+      order: -1;
+      flex-basis: auto;
+      width: 200px;
+      height: 200px;
+      margin: 0 auto;
+  }
+  .wave {
+      width: 200px;
+  }
+  .headerInfo {
+      gap: 0;
+      height: auto;
+      padding: 0;
+  }
+
+  .mainFooter {
+      margin: 50px auto;
+  }
 }
 
 
@@ -730,5 +727,6 @@ h4 + .shortList {
   fill: #af7c3f; /* ホバー時の色（お好みで変更可） */
 
 }
+
 
 
