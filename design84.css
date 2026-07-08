@@ -527,7 +527,7 @@ h4 + .shortList {
     body {
         background: #fff;
         font-size: 1.2rem;
-        /* 画面の横揺れ・はみ出しを完全に防止 */
+        /* 画面の横揺れ・はみ出しを完全にガード */
         overflow-x: hidden !important; 
     }
     h2 {
@@ -583,17 +583,18 @@ h4 + .shortList {
         top: 0 !important;
         right: 0 !important;
         left: auto !important; /* 左固定を完全に解除 */
-        width: 260px !important; /* メニューの横幅を固定 */
+        width: 260px !important; /* メニューの横幅 */
         height: 100vh !important;
         background: rgba(244, 243, 240, 0.5) !important; /* 透け感のある淡い背景 */
         box-shadow: -2px 0 8px rgba(0,0,0,0.03);
-        transform: translateX(100%) !important; /* 画面右外に隠す */
+        transform: translateX(100%) !important; /* 画面の右外に隠す */
         transition: transform .4s ease !important;
         backdrop-filter: blur(8px) !important; /* すりガラス効果 */
         z-index: 9998 !important;
     }
-    /* ボタンが押されたら右から画面内にスライドイン */
-    .view.navs {
+
+    /* 【超重要】JSが body や html に .view をつけるため、これで画面内に引き戻します */
+    .view .navs {
         transform: translateX(0) !important;
     }
 
@@ -606,7 +607,7 @@ h4 + .shortList {
         box-sizing: border-box !important;
     }
 
-    /* 2. ハンバーガーボタン（本体の画面右上（固定位置）に強制配置） */
+    /* 2. ハンバーガーボタン（画面右上・最前面に完全固定） */
     .navTrigger {
         display: flex !important; /* 消えるのを絶対に阻止 */
         position: fixed !important; 
