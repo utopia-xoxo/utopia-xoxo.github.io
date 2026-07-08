@@ -439,12 +439,12 @@ h4 + .shortList {
 @media(max-width:850px) {
     body {
         background: #fff;
-        font-size: 1.2rem;
+        font-size: 1.3rem; /* 元のサイズに戻しました！ */
         overflow-x: hidden !important; 
     }
     h2 {
         left: 0;  
-        font-size: 1.2em;
+        font-size: 1.4em; /* 元のサイズに戻しました！ */
     }
     h2::after {
         height: 50px;
@@ -480,7 +480,7 @@ h4 + .shortList {
         columns: 1;
     }
     .textWrap {
-        font-size: 1em;
+        font-size: 1.2rem; /* 元のサイズに戻しました！ */
     }
 
     /* フォーム調整 */
