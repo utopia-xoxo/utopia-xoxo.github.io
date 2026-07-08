@@ -572,9 +572,9 @@ h4 + .shortList {
       font-size: 1em;
   }
 
-  /* ===== ハンバーガーメニュー関連（きれいに整理しました） ===== */
+  /* ===== ハンバーガーメニュー関連 ===== */
 
-  /* 1. パソコン用のメインナビの横並び配置などをリセット */
+  /* 1. パソコン用のメインナビ配置などをリセット */
   .mainNav {
       display: block;
       width: 100%;
@@ -585,48 +585,48 @@ h4 + .shortList {
 
   /* 2. ハンバーガーボタンを表示（シンプルな三本線） */
   .navTrigger {
-    display: block !important;   /* パソコン用の隠す設定を上書き */
-    position: fixed;             /* 右上に固定 */
-    top: 20px;
+    display: block !important;
+    position: fixed;
+    top: 25px;
     right: 20px;
     width: 30px;
     height: 22px;
     cursor: pointer;
-    z-index: 9999;               /* メニューより手前に */
+    z-index: 9999;
   }
 
-  /* 三本線を描く（元々空のdivなので擬似要素を使います） */
+  /* 三本線を描く（中身が空のdivなので擬似要素を使います） */
   .navTrigger, .navTrigger::before, .navTrigger::after {
-    content: "";
+    content: ""; /* 文字は何も入れない */
     position: absolute;
     width: 100%;
     height: 2px;
-    background-color: #314657;   /* サイトのテーマカラー（ネイビー） */
+    background-color: #314657; /* サイトのテーマカラー */
     transition: all 0.3s ease;
   }
-  .navTrigger::before { top: -8px; left: 0; }  /* 上の線 */
-  .navTrigger::after { top: 8px; left: 0; }    /* 下の線 */
+  .navTrigger::before { top: -8px; left: 0; }
+  .navTrigger::after { top: 8px; left: 0; }
 
   /* 3. ナビゲーション全体（最初は右の画面外に隠す） */
   .navs {
     position: fixed;
     top: 0;
     right: 0;
-    width: 260px;                /* スマホメニューの横幅 */
+    width: 260px;
     height: 100vh;
-    background: #eceae4;         /* サイトに馴染む背景色 */
+    background: #eceae4;
     box-shadow: -2px 0 8px rgba(0,0,0,0.1);
-    transform: translateX(100%);  /* 初期状態は右側に隠す */
+    transform: translateX(100%);
     transition: transform 0.4s ease;
     z-index: 9998;
-    display: block;              /* 縦並びを崩さないようblockに */
+    display: block;
   }
 
   /* 4. メニュー内部の余白調整 */
   .navWrap {
       width: 100%;          
       height: 100%;
-      padding: 80px 25px;         /* 上にボタンと被らない余白 */
+      padding: 80px 25px;
       box-sizing: border-box;
   }
   
@@ -643,20 +643,20 @@ h4 + .shortList {
       color: #314657;
   }
 
-  /* パソコン用のサイドナビ固定位置をスマホ用に解除 */
+  /* パソコン用の設定をスマホ用にリセット */
   .sideNav {
       position: static;
       height: auto;
       min-width: auto;
   }
   .sideNav::before {
-      display: none;             /* パソコン用の縦線を消す */
+      display: none;
   }
   .sideNav li > a {
       max-width: none;
   }
   .sideNav li > .js_active {
-      position: static;          /* JavaScriptの位置固定を解除 */
+      position: static;
   }
 
 
@@ -673,13 +673,14 @@ h4 + .shortList {
   .view .navTrigger {
     background-color: transparent;
   }
-  /* ボタンの上と下の線を傾けて「×」マークにする */
+  /* 残った2本の線を中央で綺麗に交差させて細い「×」にする */
   .view .navTrigger::before {
-    top: 10px; /* 位置を中央（真ん中の線の場所）に合わせる */
+    content: ""; /* 文字としての「×」が絶対に出ないように上書き */
+    top: 0;
     transform: rotate(45deg);
   }
   .view .navTrigger::after {
-    top: 10px; /* 位置を中央（真ん中の線の場所）に合わせる */
+    top: 0;
     transform: rotate(-45deg);
   }
 
