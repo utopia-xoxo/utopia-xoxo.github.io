@@ -555,9 +555,9 @@ h4 + .shortList {
     transition: all 0.3s;
   }
 
-  /* 通常時は「MENU」と表示 */
+  /* 通常時は「≡」と表示 */
   .navTrigger::before {
-    content: 'MENU' !important;
+    content: '≡' !important;
     display: block;
   }
 
