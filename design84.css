@@ -1,5 +1,6 @@
 @charset "utf-8";
 
+
 @import url('https://fonts.googleapis.com/css2?family=Overpass:wght@300..500&display=swap');
 
 /* フォントのライセンス表記 */
@@ -218,27 +219,6 @@ input[type="submit"].formButton:active {
   background: #d9dede;
 }
 
-@media(max-width: 768px) {
-  #link_contact form p {
-    margin: 0 0 20px 0;
-  }
- .formInput {
-    width: calc(75% - 20px);
-    margin: 0 0 20px 20px;
-    display: block;
-  }
-
-  .formButton {
-    display: inline-block;
-    margin-left: 20px;
-    padding: 6px 14px;
-    font-size: 1rem;
-    max-width: none;
-    border-radius: 6px;
-  }
-}
-
-
 
 /* 強調 */
 
@@ -274,6 +254,7 @@ p {
 
 .allWrap {
     position: relative;
+
     margin: 0 0 10vh 250px;
     box-sizing: border-box;
 }
@@ -368,7 +349,7 @@ h4 + .shortList {
 
 .navs {
     position: fixed;
-    top: 0;
+     top: 0;
     z-index: 3;
     backdrop-filter: blur(2px);
 }
@@ -476,7 +457,7 @@ h4 + .shortList {
     text-align: center;
     font-size: 2.5em;
     font-weight: normal;
-    text-transform: none;
+    text-transform: none; /* 小文字を維持 */
 }
 
 .headerInfo {
@@ -500,7 +481,7 @@ h4 + .shortList {
 
 
 
-/* フッター */
+/* フッター（削除OK※デフォルト非表示） */
 
 .mainFooter {
     display: none;
@@ -514,7 +495,7 @@ h4 + .shortList {
 }
 
 
-/* レスポンシブ調整用（スマホ画面） */
+/* レスポンシブ調整用 */
 @media(max-width:850px) {
     body {
         background: #f4f4f4;
@@ -563,6 +544,7 @@ h4 + .shortList {
         font-size: 1em;
     }
 
+
     .navWrap {
         display: flex;
          justify-content: space-evenly;
@@ -570,73 +552,39 @@ h4 + .shortList {
          max-width: 400px;
         height: 100vh;
     }
-    
-    /* ⭕ ボタンを右上（画面の右端）に完全固定 */
     .navTrigger {
-        display: block !important;
-        position: fixed !important;    
-        top: 20px !important;           
-        right: 20px !important;         
-        left: auto !important;          
-        z-index: 9999 !important;      /* 最前面に配置してタップ不可を防止 */
-        width: auto !important;
-        height: auto !important;
-        cursor: pointer;
+        display: block;
+        position: absolute;
+         top: 0;
+         left: 100%;
+
     }
-    
-    /* テンプレート側のバグ（.viewが付いた時にボタンが広がる挙動）を強制打ち消し */
-    body.view .navTrigger,
     .view .navTrigger {
-        position: fixed !important;
-        top: 20px !important;
-        right: 20px !important;
-        left: auto !important;
-        width: auto !important;
-        height: auto !important;
+        width: calc(100vw - 250px);
+        height: 100vh;
     }
-    
     .navTrigger::before {
         content: '≡';
         display: inline-block;
         height: 40px;
-        padding: 0 12px;
+        padding: 0 10px;
         backdrop-filter: blur(2px);
         background: #fffb;
-        border: 1px solid #ddd;
-        border-radius: 4px;
         line-height: 40px;
-        font-size: 2rem;     
         text-transform: uppercase;
-        box-shadow: 0 2px 5px rgba(0,0,0,0.05);
     }
-    body.view .navTrigger::before,
     .view .navTrigger::before {
-        content: '×' !important;
-        color: #777;
-        font-size: 2rem;
+        content: '×';
+        color: #777
     }
-    
-    /* ⭕ メニュー本体（.navs）を右端に隠し、右から引き出す設定 */
     .navs {
-        position: fixed !important;
-        top: 0 !important;
-        right: 0 !important;            
-        left: auto !important;          
-        width: 280px !important;
-        height: 100vh !important;
-        background: #fffb !important;
-        transform: translateX(100%) !important; /* 初期状態は右の画面外に隠す */
-        transition: .5s ease;
-        z-index: 9998 !important;
+        background: #fffb;
+        transform: translateX(-100%);
+        transition: .5s;
     }
-    
-    /* 開いた時（JSでbodyまたは.navsにクラスがついた時どちらでも動くように網羅） */
-    body.view .navs,
-    .view.navs,
-    .view .navs {
-        transform: translateX(0) !important; 
+    .view.navs {
+        transform: translateX(0);
     }
-    
     .sideNav {
         display: flex;
          flex-direction: column;
@@ -706,17 +654,16 @@ h4 + .shortList {
         margin: 50px auto;
     }
 }
-
 /* ===== index（トップページ）だけ画面固定 ===== */
 @media screen and (max-width: 768px) {
   body.index {
-    overflow: hidden;
+    overflow: hidden;   /* スクロール禁止 */
     height: 100dvh;
     margin: 0;
     padding: 0;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: center; /* 横中央 */
+    align-items: center;     /* 縦中央 */
   }
 
   body.index .mainHeader {
@@ -745,11 +692,11 @@ h4 + .shortList {
 
 /* ===== 波文字リンクの色＆ホバー効果 ===== */
 .wave textPath a {
-  fill: #000;
+  fill: #000; /* 通常の文字色 */
   text-decoration: none;
   transition: fill 0.3s ease;
 }
 
 .wave textPath a:hover {
-  fill: #af7c3f;
+  fill: #af7c3f; /* ホバー時の色（お好みで変更可） */
 }
