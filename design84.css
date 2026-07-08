@@ -274,7 +274,6 @@ p {
 
 .allWrap {
     position: relative;
-
     margin: 0 0 10vh 250px;
     box-sizing: border-box;
 }
@@ -369,7 +368,7 @@ h4 + .shortList {
 
 .navs {
     position: fixed;
-     top: 0;
+    top: 0;
     z-index: 3;
     backdrop-filter: blur(2px);
 }
@@ -515,7 +514,7 @@ h4 + .shortList {
 }
 
 
-/* レスポンシブ調整用 */
+/* レスポンシブ調整用（スマホ画面） */
 @media(max-width:850px) {
     body {
         background: #f4f4f4;
@@ -564,7 +563,6 @@ h4 + .shortList {
         font-size: 1em;
     }
 
-
     .navWrap {
         display: flex;
          justify-content: space-evenly;
@@ -573,19 +571,30 @@ h4 + .shortList {
         height: 100vh;
     }
     
-    /* ⭕ ボタンを右上（画面の右端）に固定する設定 */
+    /* ⭕ ボタンを右上（画面の右端）に完全固定 */
     .navTrigger {
-        display: block;
-        position: fixed;     /* 画面に固定 */
-        top: 20px;           /* 上から20px */
-        right: 20px;         /* 右から20px */
-        left: auto;          /* 左固定を解除 */
-        z-index: 9999;       /* 一番手前に表示 */
+        display: block !important;
+        position: fixed !important;    
+        top: 20px !important;           
+        right: 20px !important;         
+        left: auto !important;          
+        z-index: 9999 !important;      /* 最前面に配置してタップ不可を防止 */
+        width: auto !important;
+        height: auto !important;
+        cursor: pointer;
     }
+    
+    /* テンプレート側のバグ（.viewが付いた時にボタンが広がる挙動）を強制打ち消し */
+    body.view .navTrigger,
     .view .navTrigger {
-        width: auto;
-        height: auto;
+        position: fixed !important;
+        top: 20px !important;
+        right: 20px !important;
+        left: auto !important;
+        width: auto !important;
+        height: auto !important;
     }
+    
     .navTrigger::before {
         content: '≡';
         display: inline-block;
@@ -593,31 +602,39 @@ h4 + .shortList {
         padding: 0 12px;
         backdrop-filter: blur(2px);
         background: #fffb;
+        border: 1px solid #ddd;
+        border-radius: 4px;
         line-height: 40px;
-        font-size: 2rem;     /* 記号を少し見やすく */
+        font-size: 2rem;     
         text-transform: uppercase;
-        border-radius: 4px;   /* 少し角を丸く */
         box-shadow: 0 2px 5px rgba(0,0,0,0.05);
     }
+    body.view .navTrigger::before,
     .view .navTrigger::before {
-        content: '×';
+        content: '×' !important;
         color: #777;
         font-size: 2rem;
     }
     
-    /* ⭕ メニューを右端に隠し、右から引き出す設定 */
+    /* ⭕ メニュー本体（.navs）を右端に隠し、右から引き出す設定 */
     .navs {
-        position: fixed;
-        top: 0;
-        right: 0;            /* 右端を基準にする */
-        left: auto;          /* 左基準を解除 */
-        background: #fffb;
-        transform: translateX(100%); /* 右側の画面外に隠す */
-        transition: .5s;
-        z-index: 9998;
+        position: fixed !important;
+        top: 0 !important;
+        right: 0 !important;            
+        left: auto !important;          
+        width: 280px !important;
+        height: 100vh !important;
+        background: #fffb !important;
+        transform: translateX(100%) !important; /* 初期状態は右の画面外に隠す */
+        transition: .5s ease;
+        z-index: 9998 !important;
     }
-    .view.navs {
-        transform: translateX(0); /* 画面内に滑り込ませる */
+    
+    /* 開いた時（JSでbodyまたは.navsにクラスがついた時どちらでも動くように網羅） */
+    body.view .navs,
+    .view.navs,
+    .view .navs {
+        transform: translateX(0) !important; 
     }
     
     .sideNav {
