@@ -573,13 +573,13 @@ h4 + .shortList {
     }
 
     /* -------------------------------------------------------
-       ハンバーガーボタン（右端から32px空けて綺麗なクロスに）
+       ハンバーガーボタン（右端から32px・綺麗なクロス線に変形）
     ------------------------------------------------------- */
     .navTrigger, #navTrigger {
         display: block !important;
         position: fixed !important;
         top: 25px !important;    
-        right: 32px !important;  /* ★画面の右端から32px内側に空白を空ける */
+        right: 32px !important;  /* 右端からの理想的な余白 */
         width: 30px !important;
         height: 22px !important;
         cursor: pointer !important;
@@ -587,7 +587,7 @@ h4 + .shortList {
         background: transparent !important;
     }
 
-    /* CSSで綺麗な細い三本線を描く（文字の×は完全に廃止） */
+    /* 綺麗な3本線を描く（文字の×は完全に廃止） */
     .navTrigger::before, .navTrigger::after,
     #navTrigger::before, #navTrigger::after {
         content: "" !important;
@@ -600,7 +600,7 @@ h4 + .shortList {
         transition: transform 0.3s ease, top 0.3s ease, bottom 0.3s ease, box-shadow 0.3s ease !important;
     }
     
-    /* 通常時の三本線の配置 */
+    /* 通常時の線の位置（2行あったバッティングを1つに統合） */
     .navTrigger::before, #navTrigger::before {
         top: 2px !important;
         box-shadow: 0 8px 0 #314657 !important;
@@ -609,16 +609,18 @@ h4 + .shortList {
         bottom: 2px !important;
     }
 
-    /* メニュー開封時（クラス .view がついたとき） */
-    .navs.view .navTrigger, .view .navTrigger, .navs.view #navTrigger {
+    /* メニューが開いたとき（.viewクラスがついたとき）の設定 */
+    .navs.view .navTrigger, .view .navTrigger, .navs.view #navTrigger, .view #navTrigger {
         background-color: transparent !important;
     }
-    .navs.view .navTrigger::before, .view .navTrigger::before, .navs.view #navTrigger::before {
+    
+    /* 上下の線を回転させてスマートな「×」を作る */
+    .navs.view .navTrigger::before, .view .navTrigger::before, .navs.view #navTrigger::before, .view #navTrigger::before {
         top: 10px !important;
         box-shadow: none !important;
         transform: rotate(45deg) !important;
     }
-    .navs.view .navTrigger::after, .view .navTrigger::after, .navs.view #navTrigger::after {
+    .navs.view .navTrigger::after, .view .navTrigger::after, .navs.view #navTrigger::after, .view #navTrigger::after {
         bottom: 10px !important;
         transform: rotate(-45deg) !important;
     }
@@ -642,6 +644,7 @@ h4 + .shortList {
         display: block !important;
     }
 
+    /* メニュー開封時 */
     .navs.view, .view.navs {
         transform: translateX(0) !important;
     }
@@ -655,7 +658,7 @@ h4 + .shortList {
         box-sizing: border-box !important;
     }
 
-    /* メニュー内部リンクの縦並び調整 */
+    /* メニューの中身 */
     .sideNav {
         display: block !important;
         position: static !important;
@@ -705,7 +708,7 @@ h4 + .shortList {
         padding: 5px 0 !important;
     }
 
-    /* ヘッダー・フッター位置微調整 */
+    /* その他微調整 */
     .mainHeader {
         flex-direction: column;
         margin: 0;
