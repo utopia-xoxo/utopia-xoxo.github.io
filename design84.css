@@ -1,6 +1,5 @@
 @charset "utf-8";
 
-
 @import url('https://fonts.googleapis.com/css2?family=Overpass:wght@300..500&display=swap');
 
 /* フォントのライセンス表記 */
@@ -9,9 +8,7 @@
 https://fonts.google.com/specimen/Overpass
 */
 
-
 /* 基本設定 */
-
 :root {
     --lightColor: #e8edee;
     --darkColor: #314657;
@@ -46,16 +43,13 @@ h4,
     font-weight: 300;
 }
 
-
-
 /* 見出し */
-
 h2 {
     display: flex;
-     align-items: flex-end;
-     gap: 5px;
+    align-items: flex-end;
+    gap: 5px;
     position: relative;
-     left: -30px;
+    left: -30px;
     margin: 20px 0 10px;
     padding: 10px 0 20px;
     box-sizing: border-box;
@@ -125,10 +119,7 @@ h4::before {
     line-height: 2.4;
 }
 
-
-
 /* リスト */
-
 ul,
 ol {
     list-style: none;
@@ -153,45 +144,41 @@ ol {
     text-align: center;
 }
 
-
 /* === フォーム全体の初期リセット === */
-/* ブラウザごとに違う見た目を統一するための基本設定 */
 input,
 textarea {
-  -webkit-appearance: none; /* Safari系のデフォルト装飾を消す */
-  appearance: none;         /* デフォルト装飾を消す */
-  border: var(--darkColor) solid 1px; /* デフォルトで薄い枠を付ける */
-  box-sizing: border-box;   /* paddingやborderを含めてサイズを計算 */
-  font-family: inherit;     /* 全体のフォントを引き継ぐ */
-  font-size: inherit;       /* 全体の文字サイズを引き継ぐ */
+  -webkit-appearance: none;
+  appearance: none;
+  border: var(--darkColor) solid 1px;
+  box-sizing: border-box;
+  font-family: inherit;
+  font-size: inherit;
 }
 
 /* === 入力欄（テキストボックス・本文欄） === */
 .formInput {
-  width: 100%;           /* 親要素の幅いっぱいに広げる */
-  max-width: 350px;      /* PC画面では最大260pxに制限 */
-  padding: 10px 20px;     /* 中の文字と枠の余白 */
-  border-radius: 8px;    /* 角を丸める */
-  border: 1px solid var(--darkColor); /* 通常時の枠線 */
-  background: #fff;      /* 入力欄の背景色を白に固定 */
-  font-family: inherit;  /* 全体と同じフォント */
-  font-size: 1.1rem;    /* 少し小さめの文字サイズ */
-  margin-bottom: 15px;   /* 下の要素との間隔を確保 */
+  width: 100%;
+  max-width: 350px;
+  padding: 10px 20px;
+  border-radius: 8px;
+  border: 1px solid var(--darkColor);
+  background: #fff;
+  font-family: inherit;
+  font-size: 1.1rem;
+  margin-bottom: 15px;
   box-sizing: border-box;
-  display: block;        /* 横幅指定を効かせるためにblock化 */
+  display: block;
 }
 
-/* 入力欄にフォーカスしたときの効果 */
 .formInput:focus {
-  border-color: var(--lightColor); /* ピンク寄りの枠線に */
-  outline: none;                   /* デフォルトの青い枠を消す */
-  box-shadow: 0 0 5px rgba(250, 192, 122, 1); /* ふんわり光る枠 */
+  border-color: var(--lightColor);
+  outline: none;
+  box-shadow: 0 0 5px rgba(250, 192, 122, 1);
 }
 
-/* 入力欄に表示されるプレースホルダー（薄い文字） */
 .formInput::placeholder {
-  color: #aaa;        /* 薄いグレー文字に */
-  font-size: 1.1rem;  /* 文字を少し小さく */
+  color: #aaa;
+  font-size: 1.1rem;
 }
 
 /* === 送信ボタン === */
@@ -199,56 +186,48 @@ input[type="submit"].formButton {
   -webkit-appearance: none;
   appearance: none;
   display: inline-block;
-  padding: 6px 16px;       /* ボタン内の余白 */
-  background: var(--lightColor); /* パステルピンク背景 */
-  color: #000;             /* 文字色は黒 */
-  font-size: 1rem;         /* ボタン文字の大きさ */
+  padding: 6px 16px;
+  background: var(--lightColor);
+  color: #000;
+  font-size: 1rem;
   font-family: inherit;
-  font-weight: normal;     /* 太字を解除 */
-  border: 1px solid var(--darkColor); /* 枠線 */
-  border-radius: 6px;      /* 角をちょっと丸める */
-  cursor: pointer;         /* マウスカーソルを「手のひら」に */
+  font-weight: normal;
+  border: 1px solid var(--darkColor);
+  border-radius: 6px;
+  cursor: pointer;
   box-sizing: border-box;
   text-align: center;
-  transition: background 0.3s; /* ホバー時の色変化をスムーズに */
+  transition: background 0.3s;
 }
 
-/* ボタンにマウスを乗せたとき */
 input[type="submit"].formButton:hover {
-  background: #fac07a; /* リンクと同じ色に変化 */
+  background: #fac07a;
 }
 
-/* ボタンをクリックしたとき */
 input[type="submit"].formButton:active {
-  background: #d9dede; /* グレー寄りに変化 */
+  background: #d9dede;
 }
 
 @media(max-width: 768px) {
-  /* contactフォームのpタグ */
   #link_contact form p {
-    margin: 0 0 20px 0;   /* ← 左寄せ */
+    margin: 0 0 20px 0;
   }
  .formInput {
-    width: calc(75% - 20px); /* ← 横幅を調整 */
-    margin: 0 0 20px 20px;   /* ← 左に15px余白 */
+    width: calc(75% - 20px);
+    margin: 0 0 20px 20px;
     display: block;
   }
-
   .formButton {
-    display: inline-block; /* ← ボタンは必要なサイズだけ */
-    margin-left: 20px;  /* ← ボタンを少し右に寄せる */
+    display: inline-block;
+    margin-left: 20px;
     padding: 6px 14px;
     font-size: 1rem;
-    max-width: none;       /* ← 制限解除 */
-    border-radius: 6px;    /* ← 角丸維持 */
+    max-width: none;
+    border-radius: 6px;
   }
 }
 
-
-
-
 /* 強調 */
-
 em {
     border-bottom: #fca54d solid 2px;
     font-style: normal;
@@ -257,10 +236,7 @@ strong {
     background: #eedecf;
 }
 
-
-
 /* 段落、余白 */
-
 p {
     margin: 0 2em;
 }
@@ -281,21 +257,17 @@ p {
 
 .allWrap {
     position: relative;
-
     margin: 0 0 10vh 250px;
     box-sizing: border-box;
 }
 .contentsWrap {
     width: 55%;
-     min-width: 600px;
+    min-width: 600px;
     padding: 50px 0;
     margin: auto;
 }
 
-
-
 /* メインコンテンツ */
-
 /* 名前変換フォーム */
 .nameChange .enter {
     width: 10em;
@@ -304,16 +276,15 @@ p {
 /* 長編リスト */
 .longList {
     display: grid;
-     grid-template-columns: 1fr 1fr;
-     gap: 20px 50px;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px 50px;
     position: relative;
     height: 100%;
-
 }
 .longList li {
     display: flex;
-     flex-direction: column;
-     gap: 1rem;
+    flex-direction: column;
+    gap: 1rem;
     padding: 20px;
     border-left: var(--darkColor) solid 2px;
     box-sizing: border-box;
@@ -334,7 +305,6 @@ p {
 .shortList {
     columns: 2;
 }
-
 h4 + .shortList {
     margin-top: 1em;
 }
@@ -348,7 +318,6 @@ h4 + .shortList {
 .shortList a:visited {
     color: #b5a58f;
 }
-
 
 /* 本文ページ */
 .textWrap {
@@ -370,13 +339,10 @@ h4 + .shortList {
     text-align: center;
 }
 
-
-
 /* ナビゲーション */
-
 .navs {
     position: fixed;
-     top: 0;
+    top: 0;
     z-index: 3;
     backdrop-filter: blur(2px);
 }
@@ -387,8 +353,8 @@ h4 + .shortList {
 /* サイドナビ（ページ内リンク） */
 .sideNav {
     position: fixed;
-     top: calc(5vh + 60px);
-     left: 100px;
+    top: calc(5vh + 60px);
+    left: 100px;
     min-width: 150px;
     height: calc(90vh - 60px);
     transition: .5s;
@@ -397,16 +363,16 @@ h4 + .shortList {
     content: '';
     display: block;
     position: absolute;
-     top: 0;
-     left: 1px;
+    top: 0;
+    left: 1px;
     width: 2px;
     height: 100%;
     border-left: #ccc solid 3px;
 }
 .sideNav li > a {
     display: flex;
-     align-items: center;
-     gap: 10px;
+    align-items: center;
+    gap: 10px;
     position: relative;
     max-width: 150px;
     color: #000;
@@ -416,7 +382,7 @@ h4 + .shortList {
 }
 .sideNav li > .js_active {
     position: absolute;
-     left: -1px;
+    left: -1px;
 }
 .sideNav li > a::before {
     flex-shrink: 0;
@@ -433,8 +399,8 @@ h4 + .shortList {
 /* メインナビ（ページ外リンク） */
 .mainNav {
     display: flex;
-     align-items: center;
-     gap: 0 20px;
+    align-items: center;
+    gap: 0 20px;
     position: relative;
     width: 100vw;
     height: 60px;
@@ -454,15 +420,12 @@ h4 + .shortList {
     font-weight: 500;
 }
 
-
-
 /* ヘッダー */
-
 .mainHeader {
     display: flex;
-     justify-content: center;
-     align-items: center;
-     gap: 30px;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
     min-height: 100vh;
     margin-right: 50px;
     box-sizing: border-box;
@@ -484,15 +447,23 @@ h4 + .shortList {
     text-align: center;
     font-size: 2.5em;
     font-weight: normal;
-    text-transform: none; /* 小文字を維持 */
+    text-transform: none;
+}
+.wave textPath a {
+    fill: #000;
+    text-decoration: none;
+    transition: fill 0.3s ease;
+}
+.wave textPath a:hover {
+    fill: #af7c3f;
 }
 
 .headerInfo {
     display: flex;
-     flex-direction: column;
-     justify-content: center;
-     align-items: flex-end;
-     gap: 50px 0;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 50px 0;
     height: 100vh;
     padding: 10vh 0 100px;
     box-sizing: border-box;
@@ -506,10 +477,7 @@ h4 + .shortList {
     font-size: 1.1rem;
 }
 
-
-
-/* フッター（削除OK※デフォルト非表示） */
-
+/* フッター */
 .mainFooter {
     display: none;
     margin: 15vh 0 10vh;
@@ -524,7 +492,6 @@ h4 + .shortList {
 
 /* ===== スマホ用（850px以下） ===== */
 @media(max-width:850px) {
-
   body {
       background: #f4f4f4;
       font-size: 1.2rem;
@@ -536,7 +503,6 @@ h4 + .shortList {
   h2::after {
       height: 50px;
   }
-
   *[id^="link_"] {
       scroll-margin: 40px;
   }
@@ -554,7 +520,6 @@ h4 + .shortList {
       min-width: 200px;
       padding: 10px 0;
   }
-
   .nameChange .enter {
       width: 7em;
   }
@@ -573,36 +538,34 @@ h4 + .shortList {
   }
 
   /* ===== ハンバーガーメニュー関連 ===== */
-
-  /* ボタン全体の配置とデザイン */
   .navTrigger {
-    display: block !important;   /* スマホ時に強制表示 */
-    position: fixed;             /* 右上に固定 */
+    display: block !important;
+    position: fixed;
     top: 20px;
     right: 20px;
     padding: 6px 12px;
-    z-index: 9999;               /* メニューより手前に */
+    z-index: 9999;
     cursor: pointer;
     font-family: 'Overpass', sans-serif;
     font-size: 1.2rem;
     letter-spacing: .1em;
-    color: #726c60;              /* 文字の色 */
-    background: rgba(244, 243, 240, 0.9); /* 薄い背景をつけて見やすく */
+    color: #726c60;
+    background: rgba(244, 243, 240, 0.9);
     border-radius: 4px;
     transition: all 0.3s;
   }
 
-  /* 通常時は「MENU」と表示 */
+  /* 通常時は「≡」と表示 */
   .navTrigger::before {
-    content: 'MENU' !important;
+    content: '≡' !important;
     display: block;
   }
 
-  /* メニューが開いた時（body等にviewがついた時）はスマートな「×」に切り替え */
+  /* メニューが開いた時（bodyにviewクラスがついた時）はスマートな「×」に切り替え */
   .view .navTrigger::before,
-  .navs.view + .navTrigger::before {
+  body.view .navTrigger::before {
     content: '×' !important;
-    font-size: 1.6rem;           /* 大きすぎない適切なサイズ */
+    font-size: 1.6rem !important;
     line-height: 1;
     font-weight: bold;
     text-align: center;
@@ -612,42 +575,41 @@ h4 + .shortList {
   .navs {
     position: fixed !important;
     top: 0;
-    right: -100% !important;     /* 最初は隠す */
+    right: -100% !important;
     left: auto !important;
-    width: 280px;                /* メニューの横幅 */
+    width: 280px;
     height: 100vh;
-    background-color: #eceae4;   /* テンプレート本来の背景色 */
+    background-color: #eceae4;
     box-shadow: -2px 0 8px rgba(0,0,0,0.08);
-    z-index: 9998;               /* ボタンのすぐ後ろ */
-    transition: right 0.4s ease !important; /* スライドのアニメーション */
+    z-index: 9998;
+    transition: right 0.4s ease !important;
     display: block !important;
   }
 
-  /* 【重要】メニューが開いた時、右からするっと引っ張り出す */
+  /* メニューが開いた時、右から引っ張り出す */
   .navs.view,
-  .view .navs {
+  .view .navs,
+  body.view .navs {
     right: 0 !important;
   }
 
-  /* メニュー内部のラッパー */
   .navWrap {
     width: 100%;          
     height: 100%;
-    padding: 80px 30px 30px 30px !important; /* 上ボタンに被らないよう余白 */
+    padding: 80px 30px 30px 30px !important;
     box-sizing: border-box;
     display: block !important;
   }
 
-  /* メニューリスト（スマホ用に縦並びへ調整） */
   .sideNav {
-    position: static !important; /* 固定配置を解除 */
+    position: static !important;
     width: 100% !important;
     height: auto !important;
     margin: 0 0 30px 0 !important;
     text-align: left;
   }
   .sideNav::before {
-    display: none !important;    /* PC用の縦線を消す */
+    display: none !important;
   }
   .sideNav li {
     margin-bottom: 15px !important;
@@ -660,10 +622,9 @@ h4 + .shortList {
     padding: 5px 0;
   }
   .sideNav li a::before {
-    content: none !important;    /* PC用の黒丸を消す */
+    content: none !important;
   }
 
-  /* メインナビ（ページ外リンク）もスマホメニュー内に綺麗に並べる */
   .mainNav {
     display: block !important;
     position: static !important;
@@ -672,7 +633,7 @@ h4 + .shortList {
     padding: 20px 0 0 0 !important;
     margin: 0 !important;
     background: transparent !important;
-    border-top: 1px solid rgba(49, 70, 87, 0.15); /* 区切り線 */
+    border-top: 1px solid rgba(49, 70, 87, 0.15);
   }
   .mainNav li {
     margin-bottom: 15px !important;
@@ -742,16 +703,4 @@ h4 + .shortList {
     margin: 0;
     padding: 0;
   }
-}
-
-/* ===== 波文字リンクの色＆ホバー効果 ===== */
-.wave textPath a {
-  fill: #000;
-  text-decoration: none;
-  transition: fill 0.3s ease;
-}
-.wave textPath a:hover {
-  fill: #af7c3f;
-}
-    content: "" !important;
 }
