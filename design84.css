@@ -727,7 +727,98 @@ h4 + .shortList {
 
 }
 
+/* =========================================================
+   ここからスマホ・レスポンシブ用の設定
+========================================================= */
 
+/* 1. 通常（パソコン画面）ではハンバーガーボタンを隠す */
+#navTrigger {
+  display: none;
+}
+
+/* 2. 画面横幅が768px以下のスマホサイズになったとき */
+@media screen and (max-width: 768px) {
+  
+  /* -------------------------------------------------------
+     ハンバーガーボタンを表示させ、三本線を描く
+  ------------------------------------------------------- */
+  #navTrigger {
+    display: block;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 30px;
+    height: 22px;
+    cursor: pointer;
+    z-index: 9999; /* 最前面に */
+  }
+
+  /* CSSだけで三本線を描く設定（中身が空のdiv用） */
+  #navTrigger, #navTrigger::before, #navTrigger::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: #726c60; /* 三本線の色 */
+    transition: all 0.3s;
+  }
+  #navTrigger::before { top: -8px; left: 0; }  /* 上の線 */
+  #navTrigger::after { top: 8px; left: 0; }    /* 下の線 */
+
+
+  /* -------------------------------------------------------
+     スマホ用メニュー（.navWrap）の初期状態：画面外に隠す
+  ------------------------------------------------------- */
+  .navWrap {
+    position: fixed;
+    top: 0;
+    right: -100%; /* 最初は右側の画面外に完全に隠しておく */
+    width: 80%;   /* メニューの横幅（画面の80%） */
+    height: 100%;
+    background-color: #eceae4; /* サイト全体の背景色に合わせました */
+    box-shadow: -2px 0 8px rgba(0,0,0,0.1);
+    z-index: 9998;
+    padding: 80px 20px 20px 20px;
+    box-sizing: border-box;
+    transition: right 0.3s ease; /* スライドして出てくるアニメーション */
+  }
+
+  /* 縦並びになるように調整 */
+  .navWrap ul {
+    margin-bottom: 30px;
+  }
+  .navWrap li {
+    margin-bottom: 15px;
+    list-style: none;
+  }
+  .navWrap a {
+    font-size: 14px; /* スマホでタップしやすいように少し大きめに */
+    color: #726c60;
+    display: block;
+  }
+
+
+  /* -------------------------------------------------------
+     【超重要】JavaScriptで「view」クラスがついたときの動き
+  ------------------------------------------------------- */
+  /* .navs に .view がついたら、右からメニューを引っ張り出す */
+  .navs.view .navWrap {
+    right: 0;
+  }
+
+  /* ボタンの三本線をおしゃれに「×」の形に変形させる設定 */
+  .navs.view #navTrigger {
+    background-color: transparent; /* 真ん中の線を透明に */
+  }
+  .navs.view #navTrigger::before {
+    top: 0;
+    transform: rotate(45deg); /* 上の線を傾ける */
+  }
+  .navs.view #navTrigger::after {
+    top: 0;
+    transform: rotate(-45deg); /* 下の線を逆向きに傾ける */
+  }
+}
 
 
 
