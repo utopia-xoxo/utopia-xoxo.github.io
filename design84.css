@@ -745,12 +745,12 @@ h4 + .shortList {
   #navTrigger {
     display: block;
     position: fixed;
-    top: 20px;
-    right: 20px;
+    top: 25px;   /* 上に少し余裕を持たせる */
+    right: 32px;  /* ★ここ！数値を大きくするほど左（内側）に寄ります */
     width: 30px;
     height: 22px;
     cursor: pointer;
-    z-index: 9999; /* 最前面に */
+    z-index: 9999;
   }
 
   /* CSSだけで三本線を描く設定（中身が空のdiv用） */
