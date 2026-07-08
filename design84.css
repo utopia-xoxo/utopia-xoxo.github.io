@@ -155,7 +155,7 @@ textarea {
   font-size: inherit;
 }
 
-/* === 入力欄（テキストボックス・本文欄） === */
+/* === 入力欄 === */
 .formInput {
   width: 100%;
   max-width: 350px;
@@ -268,7 +268,6 @@ p {
 }
 
 /* メインコンテンツ */
-/* 名前変換フォーム */
 .nameChange .enter {
     width: 10em;
 }
@@ -537,7 +536,7 @@ h4 + .shortList {
       font-size: 1em;
   }
 
-  /* ===== ハンバーガーメニュー関連 ===== */
+  /* ===== ハンバーガーボタンの設定 ===== */
   .navTrigger {
     display: block !important;
     position: fixed;
@@ -555,42 +554,39 @@ h4 + .shortList {
     transition: all 0.3s;
   }
 
-  /* 通常時は「≡」と表示 */
+  /* 通常時のボタン表示 */
   .navTrigger::before {
     content: '≡' !important;
     display: block;
   }
 
-  /* メニューが開いた時はスマートな「×」に切り替え */
-  .view .navTrigger::before,
-  body.view .navTrigger::before {
+  /* メニュー開閉時の「×」切り替え */
+  body.view .navTrigger::before,
+  .view .navTrigger::before {
     content: '×' !important;
     font-size: 1.6rem !important;
-    line-height: 1;
     font-weight: bold;
-    text-align: center;
   }
 
-  /* スマホ用メニュー本体：初期状態は右側の画面外に隠す */
+  /* ===== 左側メニューの設定 ===== */
   .navs {
     position: fixed !important;
     top: 0;
-    right: -100% !important;
-    left: auto !important;
+    left: -100% !important; /* 最初は左側の画面外に隠す */
+    right: auto !important;
     width: 280px;
     height: 100vh;
     background-color: #eceae4;
-    box-shadow: -2px 0 8px rgba(0,0,0,0.08);
+    box-shadow: 2px 0 8px rgba(0,0,0,0.08);
     z-index: 9998;
-    transition: right 0.4s ease !important;
+    transition: left 0.4s ease !important;
     display: block !important;
   }
 
-  /* メニューが開いた時、右から引っ張り出す */
-  .navs.view,
-  .view .navs,
-  body.view .navs {
-    right: 0 !important;
+  /* viewクラスがついたら左から引っ張り出す */
+  body.view .navs,
+  .navs.view {
+    left: 0 !important;
   }
 
   .navWrap {
@@ -645,7 +641,7 @@ h4 + .shortList {
     padding: 5px 0;
   }
 
-  /* ===== ヘッダー・フッター調整 ===== */
+  /* ヘッダー・フッター調整 */
   .mainHeader {
     flex-direction: column;
     margin: 0;
@@ -671,7 +667,7 @@ h4 + .shortList {
   }
 }
 
-/* ===== index（トップページ）だけ画面固定 ===== */
+/* トップページ画面固定 */
 @media screen and (max-width: 768px) {
   body.index {
     overflow: hidden;
