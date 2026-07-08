@@ -527,6 +527,8 @@ h4 + .shortList {
     body {
         background: #fff;
         font-size: 1.2rem;
+        /* 画面の横揺れ・はみ出しを完全に防止 */
+        overflow-x: hidden !important; 
     }
     h2 {
         left: 0;  
@@ -580,14 +582,15 @@ h4 + .shortList {
         position: fixed !important;
         top: 0 !important;
         right: 0 !important;
-        left: auto !important;
-        width: 260px !important;
+        left: auto !important; /* 左固定を完全に解除 */
+        width: 260px !important; /* メニューの横幅を固定 */
         height: 100vh !important;
-        background: rgba(244, 243, 240, 0.5) !important; 
+        background: rgba(244, 243, 240, 0.5) !important; /* 透け感のある淡い背景 */
         box-shadow: -2px 0 8px rgba(0,0,0,0.03);
-        transform: translateX(100%) !important;
+        transform: translateX(100%) !important; /* 画面右外に隠す */
         transition: transform .4s ease !important;
-        backdrop-filter: blur(8px) !important; 
+        backdrop-filter: blur(8px) !important; /* すりガラス効果 */
+        z-index: 9998 !important;
     }
     /* ボタンが押されたら右から画面内にスライドイン */
     .view.navs {
@@ -603,9 +606,9 @@ h4 + .shortList {
         box-sizing: border-box !important;
     }
 
-    /* 2. ハンバーガーボタン（確実に画面右上に出現させる） */
+    /* 2. ハンバーガーボタン（本体の画面右上（固定位置）に強制配置） */
     .navTrigger {
-        display: flex !important; /* PC版の display: none を完全に打ち消す */
+        display: flex !important; /* 消えるのを絶対に阻止 */
         position: fixed !important; 
         top: 25px !important;
         right: 20px !important;
@@ -613,17 +616,17 @@ h4 + .shortList {
         width: 30px !important;
         height: 22px !important;
         cursor: pointer !important;
-        z-index: 9999 !important; 
+        z-index: 9999 !important; /* メニューよりさらに手前に */
     }
     
-    /* 開いたときにボタンが巨大化するのを防止 */
+    /* 開いたときもボタンのサイズを維持 */
     .view .navTrigger {
         display: flex !important;
         width: 30px !important;
         height: 22px !important;
     }
 
-    /* 三本線を描く設定 */
+    /* 三本線を描く設定（文字の'menu'などを非表示に） */
     .navTrigger::before, .navTrigger::after {
         content: "" !important;
         display: block !important;
