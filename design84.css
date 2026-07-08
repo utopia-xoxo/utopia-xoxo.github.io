@@ -306,7 +306,7 @@ h4 + .shortList {
     backdrop-filter: blur(2px);
 }
 .navTrigger {
-    display: none; /* PC版ではボタンを非表示 */
+    display: none; /* PC版では非表示 */
 }
 .sideNav {
     position: fixed;
@@ -435,7 +435,6 @@ h4 + .shortList {
 
 /* =======================================================
    【スマホ用設定（850px以下）】
-   ★ここにすべてのスマホ用上書きをまとめ、PC版の干渉を防ぎます
 ======================================================= */
 @media(max-width:850px) {
     body {
@@ -504,15 +503,15 @@ h4 + .shortList {
         left: auto !important;
         width: 260px !important;
         height: 100vh !important;
-        background: rgba(244, 243, 240, 0.5) !important; 
-        box-shadow: -2px 0 8px rgba(0,0,0,0.03);
-        transform: translateX(100%) !important; /* 初期は画面右に隠す */
+        background: rgba(244, 243, 240, 0.7) !important; 
+        box-shadow: -2px 0 8px rgba(0,0,0,0.05);
+        transform: translateX(100%) !important; /* 初期は隠す */
         transition: transform .4s ease !important;
         backdrop-filter: blur(8px) !important;
         z-index: 9998 !important;
     }
 
-    /* メニューが開いた時（bodyに.viewがついた時）に引き出す */
+    /* メニューが開いた時 */
     .view .navs {
         transform: translateX(0) !important;
     }
@@ -525,48 +524,43 @@ h4 + .shortList {
         box-sizing: border-box !important;
     }
 
-    /* ハンバーガーボタンを確実に最前面に常駐させる */
+    /* ハンバーガーボタン（空タグでも強制実体化） */
     .navTrigger {
-        display: flex !important; 
-        position: fixed !important; 
+        display: block !important;
+        position: fixed !important;
         top: 25px !important;
         right: 20px !important;
-        left: auto !important;
         width: 30px !important;
         height: 22px !important;
         cursor: pointer !important;
         z-index: 9999 !important;
     }
-    
-    .view .navTrigger {
-        display: flex !important;
-        width: 30px !important;
-        height: 22px !important;
-    }
 
-    /* 三本線の描画 */
+    /* 三本線の描画とアニメーション（サイズを美しく固定） */
     .navTrigger::before, .navTrigger::after {
         content: "" !important;
         display: block !important;
         position: absolute !important;
-        width: 100% !important;
+        left: 0 !important;
+        width: 30px !important;
         height: 2px !important;
-        background-color: #314657 !important; 
-        transition: all 0.3s ease !important;
-        color: transparent !important;
+        background-color: #314657 !important;
+        transition: transform 0.3s ease, top 0.3s ease, bottom 0.3s ease, box-shadow 0.3s ease !important;
     }
+    
+    /* 通常時の三本線 */
     .navTrigger::before {
-        top: 2px !important;
-        box-shadow: 0 8px 0 #314657 !important; 
+        top: 3px !important;
+        box-shadow: 0 7px 0 #314657 !important;
     }
     .navTrigger::after {
-        bottom: 2px !important;
+        bottom: 3px !important;
     }
 
-    /* ボタン開閉時の「×」アニメーション */
+    /* メニュー開封時：綺麗なサイズの「×」にクロスさせる */
     .view .navTrigger::before {
         top: 10px !important;
-        box-shadow: none !important; 
+        box-shadow: none !important;
         transform: rotate(45deg) !important;
     }
     .view .navTrigger::after {
