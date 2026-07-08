@@ -574,123 +574,153 @@ h4 + .shortList {
 
   /* ===== ハンバーガーメニュー関連 ===== */
 
-  /* ハンバーガーメニューアイコン */
-.navTrigger {
-  display: block !important;   /* ← 最優先で表示 */
-  position: fixed;             /* 右上に固定 */
-  top: 15px;                   /* 少し下に */
-  right: 15px;                 /* 右から15px */
-  width: 55px;                 /* ちょっと大きめ */
-  height: 55px;
-  z-index: 3000;               /* 最前面 */
-  cursor: pointer;
-}
-
-.navTrigger::before {
-  content: '≡';                /* 三本線 */
-  display: inline-block;
-  width: 100%;
-  height: 100%;
-  font-size: 2.4rem;           /* 少し大きめ */
-  line-height: 55px;           /* 縦中央 */
-  text-align: center;
-  color: #333;                 /* 目立つ色 */
-  background: rgba(255,255,255,0.9); /* 白背景 */
-  border-radius: 6px;          /* 角丸 */
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-}
-
-.view .navTrigger::before {
-  content: '×';                /* 開いたときは × */
-  color: #777;
-}
-
-
-  /* ナビ全体（右からスライド） */
-  .navs {
-    position: fixed;
-    top: 0;
-    right: 0;
-    width: 70vw;
-    max-width: 300px;
-    height: 100vh;
-    background: #fffb;
-    transform: translateX(100%);  /* 初期は右に隠す */
-    transition: .5s;
-    z-index: 2000;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  /* ボタン全体の配置とデザイン */
+  .navTrigger {
+    display: block !important;   /* スマホ時に強制表示 */
+    position: fixed;             /* 右上に固定 */
+    top: 20px;
+    right: 20px;
+    padding: 6px 12px;
+    z-index: 9999;               /* メニューより手前に */
+    cursor: pointer;
+    font-family: 'Overpass', sans-serif;
+    font-size: 1.2rem;
+    letter-spacing: .1em;
+    color: #726c60;              /* 文字の色 */
+    background: rgba(244, 243, 240, 0.9); /* 薄い背景をつけて見やすく */
+    border-radius: 4px;
+    transition: all 0.3s;
   }
 
-  /* 表示時 */
-  .view.navs {
-    transform: translateX(0);
+  /* 通常時は「MENU」と表示 */
+  .navTrigger::before {
+    content: 'MENU' !important;
+    display: block;
+  }
+
+  /* メニューが開いた時（body等にviewがついた時）はスマートな「×」に切り替え */
+  .view .navTrigger::before,
+  .navs.view + .navTrigger::before {
+    content: '×' !important;
+    font-size: 1.6rem;           /* 大きすぎない適切なサイズ */
+    line-height: 1;
+    font-weight: bold;
+    text-align: center;
+  }
+
+  /* スマホ用メニュー本体：初期状態は右側の画面外に隠す */
+  .navs {
+    position: fixed !important;
+    top: 0;
+    right: -100% !important;     /* 最初は隠す */
+    left: auto !important;
+    width: 280px;                /* メニューの横幅 */
+    height: 100vh;
+    background-color: #eceae4;   /* テンプレート本来の背景色 */
+    box-shadow: -2px 0 8px rgba(0,0,0,0.08);
+    z-index: 9998;               /* ボタンのすぐ後ろ */
+    transition: right 0.4s ease !important; /* スライドのアニメーション */
+    display: block !important;
+  }
+
+  /* 【重要】メニューが開いた時、右からするっと引っ張り出す */
+  .navs.view,
+  .view .navs {
+    right: 0 !important;
   }
 
   /* メニュー内部のラッパー */
   .navWrap {
-      width: 100%;          
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
-      padding: 80px 20px;   /* 上に余白 */
-      box-sizing: border-box;
+    width: 100%;          
+    height: 100%;
+    padding: 80px 30px 30px 30px !important; /* 上ボタンに被らないよう余白 */
+    box-sizing: border-box;
+    display: block !important;
   }
 
-  /* メニューリスト */
+  /* メニューリスト（スマホ用に縦並びへ調整） */
   .sideNav {
-      width: 100%;
-      text-align: center;
+    position: static !important; /* 固定配置を解除 */
+    width: 100% !important;
+    height: auto !important;
+    margin: 0 0 30px 0 !important;
+    text-align: left;
+  }
+  .sideNav::before {
+    display: none !important;    /* PC用の縦線を消す */
   }
   .sideNav li {
-      margin: 1em 0;
+    margin-bottom: 15px !important;
+    list-style: none;
   }
   .sideNav li a {
-      display: block;
-      padding: 10px;
+    font-size: 1.3rem;
+    color: #314657;
+    display: block;
+    padding: 5px 0;
+  }
+  .sideNav li a::before {
+    content: none !important;    /* PC用の黒丸を消す */
+  }
+
+  /* メインナビ（ページ外リンク）もスマホメニュー内に綺麗に並べる */
+  .mainNav {
+    display: block !important;
+    position: static !important;
+    width: 100% !important;
+    height: auto !important;
+    padding: 20px 0 0 0 !important;
+    margin: 0 !important;
+    background: transparent !important;
+    border-top: 1px solid rgba(49, 70, 87, 0.15); /* 区切り線 */
+  }
+  .mainNav li {
+    margin-bottom: 15px !important;
+  }
+  .mainNav li a {
+    font-size: 1.3rem;
+    color: #314657;
+    display: block;
+    padding: 5px 0;
   }
 
   /* ===== ヘッダー・フッター調整 ===== */
-
   .mainHeader {
-      flex-direction: column;
-      margin: 0;
+    flex-direction: column;
+    margin: 0;
   }
   .mainHeader::after {
-      order: -1;
-      flex-basis: auto;
-      width: 200px;
-      height: 200px;
-      margin: 0 auto;
+    order: -1;
+    flex-basis: auto;
+    width: 200px;
+    height: 200px;
+    margin: 0 auto;
   }
   .wave {
-      width: 200px;
+    width: 200px;
   }
   .headerInfo {
-      gap: 0;
-      height: auto;
-      padding: 0;
+    gap: 0;
+    height: auto;
+    padding: 0;
   }
-
   .mainFooter {
-      margin: 50px auto;
+    margin: 50px auto;
+    display: block;
   }
 }
 
 /* ===== index（トップページ）だけ画面固定 ===== */
 @media screen and (max-width: 768px) {
   body.index {
-    overflow: hidden;   /* スクロール禁止 */
+    overflow: hidden;
     height: 100dvh;
     margin: 0;
     padding: 0;
     display: flex;
-    justify-content: center; /* 横中央 */
-    align-items: center;     /* 縦中央 */
+    justify-content: center;
+    align-items: center;
   }
-
   body.index .mainHeader {
     width: 100vw;
     height: 100dvh;
@@ -703,7 +733,6 @@ h4 + .shortList {
     align-items: center;
     box-sizing: border-box;
   }
-
   body.index .headerInfo {
     display: flex;
     flex-direction: column;
@@ -717,115 +746,12 @@ h4 + .shortList {
 
 /* ===== 波文字リンクの色＆ホバー効果 ===== */
 .wave textPath a {
-  fill: #000; /* 通常の文字色 */
+  fill: #000;
   text-decoration: none;
   transition: fill 0.3s ease;
 }
-
 .wave textPath a:hover {
-  fill: #af7c3f; /* ホバー時の色（お好みで変更可） */
-
+  fill: #af7c3f;
 }
-
-/* =========================================================
-   ここからスマホ・レスポンシブ用の設定
-========================================================= */
-
-/* 1. 通常（パソコン画面）ではハンバーガーボタンを隠す */
-#navTrigger {
-  display: none;
-}
-
-/* 2. 画面横幅が768px以下のスマホサイズになったとき */
-@media screen and (max-width: 768px) {
-  
-  /* -------------------------------------------------------
-     ハンバーガーボタンを表示させ、三本線を描く
-  ------------------------------------------------------- */
-  #navTrigger {
-    display: block;
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    width: 30px;
-    height: 22px;
-    cursor: pointer;
-    z-index: 9999; /* 最前面に */
-  }
-
-  /* CSSだけで三本線を描く設定（中身が空のdiv用） */
-  #navTrigger, #navTrigger::before, #navTrigger::after {
-    content: "";
-    position: absolute;
-    width: 100%;
-    height: 2px;
-    background-color: #726c60; /* 三本線の色 */
-    transition: all 0.3s;
-  }
-  #navTrigger::before { top: -8px; left: 0; }  /* 上の線 */
-  #navTrigger::after { top: 8px; left: 0; }    /* 下の線 */
-
-
-  /* -------------------------------------------------------
-     スマホ用メニュー（.navWrap）の初期状態：画面外に隠す
-  ------------------------------------------------------- */
-  .navWrap {
-    position: fixed;
-    top: 0;
-    right: -100%; /* 最初は右側の画面外に完全に隠しておく */
-    width: 80%;   /* メニューの横幅（画面の80%） */
-    height: 100%;
-    background-color: #eceae4; /* サイト全体の背景色に合わせました */
-    box-shadow: -2px 0 8px rgba(0,0,0,0.1);
-    z-index: 9998;
-    padding: 80px 20px 20px 20px;
-    box-sizing: border-box;
-    transition: right 0.3s ease; /* スライドして出てくるアニメーション */
-  }
-
-  /* 縦並びになるように調整 */
-  .navWrap ul {
-    margin-bottom: 30px;
-  }
-  .navWrap li {
-    margin-bottom: 15px;
-    list-style: none;
-  }
-  .navWrap a {
-    font-size: 14px; /* スマホでタップしやすいように少し大きめに */
-    color: #726c60;
-    display: block;
-  }
-
-
-  .navWrap a {
-    font-size: 14px; /* スマホでタップしやすいように少し大きめに */
-    color: #726c60;
-    display: block;
-}
-
-/* -------------------------------------------------------
-   【超重要】JavaScriptで「view」クラスがついたときの動き
-------------------------------------------------------- */
-/* .navs に .view がついたら、右からメニューを引っ張り出す */
-.navs.view {
-    right: 0 !important;
-}
-
-/* ボタンの三本線をおしゃれに「×」の形に変形させる設定 */
-.view .navTrigger {
-    background-color: transparent !important; /* 真ん中の線を透明に */
-}
-.view .navTrigger::before {
-    top: 0 !important;
-    transform: rotate(45deg) !important; /* 上の線を傾ける */
-}
-.view .navTrigger::after {
-    top: 0 !important;
-    transform: rotate(-45deg) !important; /* 下の線を逆向きに傾ける */
-}
-
-/* 文字としての大きな『×』が出るのを完全に打ち消す */
-.view .navTrigger::before {
     content: "" !important;
 }
