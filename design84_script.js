@@ -56,7 +56,7 @@ $(function(){
     
     
     //ナビゲーション開閉
-    $('#navTrigger').on('click', function(){
+    $('.navTrigger').on('click', function(){
         navs.toggleClass('view');
     })
     $('.navWrap').on('click', function(){
