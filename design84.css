@@ -555,13 +555,13 @@ h4 + .shortList {
     transition: all 0.3s;
   }
 
-  /* 通常時は「≡」と表示 */
+  /* 通常時は「MENU」と表示 */
   .navTrigger::before {
-    content: '≡' !important;
+    content: 'MENU' !important;
     display: block;
   }
 
-  /* メニューが開いた時（bodyにviewクラスがついた時）はスマートな「×」に切り替え */
+  /* メニューが開いた時はスマートな「×」に切り替え */
   .view .navTrigger::before,
   body.view .navTrigger::before {
     content: '×' !important;
