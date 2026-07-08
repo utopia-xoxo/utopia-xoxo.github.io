@@ -689,12 +689,13 @@ h4 + .shortList {
   }
 }
 
-/* ===== 波文字リンクの効果 ===== */
+/* ===== 波文字リンクの色＆ホバー効果 ===== */
 .wave textPath a {
-  fill: #000; 
+  fill: #000; /* 通常の文字色 */
   text-decoration: none;
   transition: fill 0.3s ease;
 }
+
 .wave textPath a:hover {
-  fill: #af7c3f; 
+  fill: #af7c3f; /* ホバー時の色 */
 }
