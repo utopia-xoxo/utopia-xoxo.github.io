@@ -577,6 +577,8 @@ h4 + .shortList {
     ------------------------------------------------------- */
     .navTrigger, #navTrigger {
         display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
         position: fixed !important;
         top: 25px !important;    
         right: 32px !important;  /* 右端からの理想的な余白 */
@@ -600,7 +602,7 @@ h4 + .shortList {
         transition: transform 0.3s ease, top 0.3s ease, bottom 0.3s ease, box-shadow 0.3s ease !important;
     }
     
-    /* 通常時の線の位置（2行あったバッティングを1つに統合） */
+    /* 通常時の線の位置 */
     .navTrigger::before, #navTrigger::before {
         top: 2px !important;
         box-shadow: 0 8px 0 #314657 !important;
@@ -708,7 +710,7 @@ h4 + .shortList {
         padding: 5px 0 !important;
     }
 
-    /* その他微調整 */
+    /* ヘッダー・フッター調整 */
     .mainHeader {
         flex-direction: column;
         margin: 0;
@@ -733,17 +735,18 @@ h4 + .shortList {
     }
 }
 
-/* ===== index（トップページ）画面固定 ===== */
+/* ===== index（トップページ）だけ画面固定 ===== */
 @media screen and (max-width: 768px) {
   body.index {
-    overflow: hidden;
+    overflow: hidden;   /* スクロール禁止 */
     height: 100dvh;
     margin: 0;
     padding: 0;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: center; /* 横中央 */
+    align-items: center;     /* 縦中央 */
   }
+
   body.index .mainHeader {
     width: 100vw;
     height: 100dvh;
@@ -756,6 +759,7 @@ h4 + .shortList {
     align-items: center;
     box-sizing: border-box;
   }
+
   body.index .headerInfo {
     display: flex;
     flex-direction: column;
@@ -765,4 +769,15 @@ h4 + .shortList {
     margin: 0;
     padding: 0;
   }
+}
+
+/* ===== 波文字リンクの色＆ホバー効果 ===== */
+.wave textPath a {
+  fill: #000; /* 通常の文字色 */
+  text-decoration: none;
+  transition: fill 0.3s ease;
+}
+
+.wave textPath a:hover {
+  fill: #af7c3f; /* ホバー時の色 */
 }
