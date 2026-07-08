@@ -155,44 +155,40 @@ ol {
 
 
 
-/* === フォーム全体の初期リセット === */
-input,
+/* フォーム系 */
+
+input[type],
 textarea {
-  -webkit-appearance: none;
-  appearance: none;
-  border: var(--darkColor) solid 1px;
-  box-sizing: border-box;
-  font-family: inherit;
-  font-size: inherit;
+    -webkit-appearance: none;
+    appearance: none;
+    border: var(--darkColor) solid 1px;
+    border-radius: 0;
+    box-sizing: border-box;
+    font-family: inherit;
+    font-size: inherit;
+}
+.enter {
+    padding: 5px;
+}
+.button {
+    padding: 5px 10px;
+    background: var(--lightColor);
 }
 
-/* === 入力欄 === */
-.formInput {
-  width: 100%;
-  max-width: 350px;
-  padding: 10px 20px;
-  border-radius: 8px;
-  border: 1px solid var(--darkColor);
-  background: #fff;
-  font-family: inherit;
-  font-size: 1.1rem;
-  margin-bottom: 15px;
-  box-sizing: border-box;
-  display: block;
-}
 
-.formInput:focus {
-  border-color: var(--lightColor);
-  outline: none;
-  box-shadow: 0 0 5px rgba(250, 192, 122, 1);
+/* メールフォーム */
+.mailForm {
+    display: flex;
+     flex-direction: column;
+    width: 80%;
 }
-
-.formInput::placeholder {
-  color: #aaa;
-  font-size: 1.1rem;
+.mailForm .enter {
+    margin-bottom: 10px;
 }
-
-/* === 送信ボタン === */
+.mailForm .button {
+    margin-right: auto;
+}
+/* メールフォームの送信ボタン */
 input[type="submit"].formButton {
   -webkit-appearance: none;
   appearance: none;
@@ -200,43 +196,26 @@ input[type="submit"].formButton {
   padding: 6px 16px;
   background: var(--lightColor);
   color: #000;
-  font-size: 1rem;
+  font-size: 1.2rem;
   font-family: inherit;
-  font-weight: normal;
-  border: 1px solid var(--darkColor);
-  border-radius: 6px;
+  font-weight: normal;   /* 太字を解除 */
+  border: 1px solid var(--darkColor); /* 枠を追加 */
+  border-radius: 4px;    /* 角を少し丸める（不要なら消してOK） */
   cursor: pointer;
   box-sizing: border-box;
   text-align: center;
-  transition: background 0.3s;
 }
 
+/* ホバーしたとき（PC用） */
 input[type="submit"].formButton:hover {
-  background: #fac07a;
+  background: #e1e6e7;
 }
 
+/* 押したとき */
 input[type="submit"].formButton:active {
   background: #d9dede;
 }
 
-@media(max-width: 768px) {
-  #link_contact form p {
-    margin: 0 0 20px 0;
-  }
- .formInput {
-    width: calc(75% - 20px);
-    margin: 0 0 20px 20px;
-    display: block;
-  }
-  .formButton {
-    display: inline-block;
-    margin-left: 20px;
-    padding: 6px 14px;
-    font-size: 1rem;
-    max-width: none;
-    border-radius: 6px;
-  }
-}
 
 /* 強調 */
 
@@ -345,7 +324,7 @@ h4 + .shortList {
 .textWrap {
     width: 90%;
     margin: 0 auto 10vh;
-    font-size: 1.1em;
+    font-size: 1.2rem;
     line-height: 2;
 }
 .textWrap h2 {
@@ -465,7 +444,7 @@ h4 + .shortList {
     width: 400px;
     height: 400px;
     margin-left: 50px;
-    background: url('../img/design84_main.jpg') center / contain no-repeat;
+    background: url('design84_main.jpg') center / contain no-repeat;
 }
 
 /* 波状文字 */
@@ -474,36 +453,16 @@ h4 + .shortList {
     width: 250px;
     text-align: center;
     font-size: 2.5em;
-    text-transform: uppercase;
+    font-weight: normal;
+    text-transform: none; /* 小文字を維持 */
 }
 
 .headerInfo {
     display: flex;
      flex-direction: column;
-     justify-con/* 波状文字 */
-.wave {
-    align-self: flex-start;
-    width: 250px;
-    text-align: center;
-    font-size: 2.5em;
-    font-weight: normal;
-    text-transform: none;
-}
-.wave textPath a {
-    fill: #000;
-    text-decoration: none;
-    transition: fill 0.3s ease;
-}
-.wave textPath a:hover {
-    fill: #af7c3f;
-}
-
-.headerInfo {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-end;
-    gap: 50px 0;
+     justify-content: center;
+     align-items: flex-end;
+     gap: 50px 0;
     height: 100vh;
     padding: 10vh 0 100px;
     box-sizing: border-box;
@@ -517,7 +476,10 @@ h4 + .shortList {
     font-size: 1.1rem;
 }
 
-/* フッター */
+
+
+/* フッター（削除OK※デフォルト非表示） */
+
 .mainFooter {
     display: none;
     margin: 15vh 0 10vh;
@@ -530,11 +492,10 @@ h4 + .shortList {
 }
 
 
-
 /* レスポンシブ調整用 */
 @media(max-width:850px) {
     body {
-        background: #fff;
+        background: #f4f4f4;
         font-size: 1.2rem;
     }
     h2 {
@@ -600,7 +561,7 @@ h4 + .shortList {
         height: 100vh;
     }
     .navTrigger::before {
-        content: 'menu';
+        content: '≡';
         display: inline-block;
         height: 40px;
         padding: 0 10px;
@@ -610,7 +571,7 @@ h4 + .shortList {
         text-transform: uppercase;
     }
     .view .navTrigger::before {
-        content: 'close';
+        content: '×';
         color: #777
     }
     .navs {
@@ -689,7 +650,7 @@ h4 + .shortList {
     .mainFooter {
         margin: 50px auto;
     }
-
+}
 /* ===== index（トップページ）だけ画面固定 ===== */
 @media screen and (max-width: 768px) {
   body.index {
@@ -734,5 +695,5 @@ h4 + .shortList {
 }
 
 .wave textPath a:hover {
-  fill: #af7c3f; /* ホバー時の色 */
+  fill: #af7c3f; /* ホバー時の色（お好みで変更可） */
 }
