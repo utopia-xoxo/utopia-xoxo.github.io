@@ -580,14 +580,15 @@ h4 + .shortList {
         position: fixed !important;
         top: 0 !important;
         right: 0 !important;
-        left: auto !important; /* 左固定を解除 */
-        width: 260px !important; /* メニューの横幅 */
+        left: auto !important;
+        width: 260px !important;
         height: 100vh !important;
-        background: #eceae4 !important; /* サイトに馴染む背景色 */
-        box-shadow: -2px 0 8px rgba(0,0,0,0.1);
-        transform: translateX(100%) !important; /* 元の-100%（左）を100%（右）に強制上書き */
+        /* ↓ 最後の「0.85」が不透明度です（0が完全透明、1がベタ塗り） */
+        background: rgba(244, 243, 240, 0.85) !important; 
+        box-shadow: -2px 0 8px rgba(0,0,0,0.05);
+        transform: translateX(100%) !important;
         transition: transform .4s ease !important;
-        backdrop-filter: none !important;
+        backdrop-filter: blur(4px) !important; /* ← 後ろをほんのりぼかすエフェクトを追加しました */
     }
     /* ボタンが押されたら右から画面内にスライドイン */
     .view.navs {
