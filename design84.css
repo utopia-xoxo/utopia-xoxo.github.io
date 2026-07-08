@@ -798,15 +798,21 @@ h4 + .shortList {
   }
 
 
-  /* -------------------------------------------------------
-     【超重要】JavaScriptで「view」クラスがついたときの動き
-  ------------------------------------------------------- */
-  /* .navs に .view がついたら、右からメニューを引っ張り出す */
-  .navs.view .navWrap {
-    right: 10;
-  }
+  .navWrap a {
+    font-size: 14px; /* スマホでタップしやすいように少し大きめに */
+    color: #726c60;
+    display: block;
+}
 
-  /* ボタンの三本線をおしゃれに「×」の形に変形させる設定 */
+/* -------------------------------------------------------
+   【超重要】JavaScriptで「view」クラスがついたときの動き
+------------------------------------------------------- */
+/* .navs に .view がついたら、右からメニューを引っ張り出す */
+.navs.view {
+    right: 0 !important;
+}
+
+/* ボタンの三本線をおしゃれに「×」の形に変形させる設定 */
 .view .navTrigger {
     background-color: transparent !important; /* 真ん中の線を透明に */
 }
@@ -817,4 +823,9 @@ h4 + .shortList {
 .view .navTrigger::after {
     top: 0 !important;
     transform: rotate(-45deg) !important; /* 下の線を逆向きに傾ける */
+}
+
+/* 文字としての大きな『×』が出るのを完全に打ち消す */
+.view .navTrigger::before {
+    content: "" !important;
 }
