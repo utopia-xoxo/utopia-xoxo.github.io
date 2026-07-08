@@ -803,25 +803,18 @@ h4 + .shortList {
   ------------------------------------------------------- */
   /* .navs に .view がついたら、右からメニューを引っ張り出す */
   .navs.view .navWrap {
-    right: 0;
+    right: 10;
   }
 
   /* ボタンの三本線をおしゃれに「×」の形に変形させる設定 */
-  .navs.view #navTrigger {
-    background-color: transparent; /* 真ん中の線を透明に */
-  }
-  .navs.view #navTrigger::before {
-    top: 0;
-    transform: rotate(45deg); /* 上の線を傾ける */
-  }
-  .navs.view #navTrigger::after {
-    top: 0;
-    transform: rotate(-45deg); /* 下の線を逆向きに傾ける */
-  }
+.view .navTrigger {
+    background-color: transparent !important; /* 真ん中の線を透明に */
 }
-
-
-
-
-
-
+.view .navTrigger::before {
+    top: 0 !important;
+    transform: rotate(45deg) !important; /* 上の線を傾ける */
+}
+.view .navTrigger::after {
+    top: 0 !important;
+    transform: rotate(-45deg) !important; /* 下の線を逆向きに傾ける */
+}
