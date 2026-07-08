@@ -675,11 +675,11 @@ h4 + .shortList {
   }
   /* ボタンの上と下の線を傾けて「×」マークにする */
   .view .navTrigger::before {
-    top: 0;
+    top: 10px; /* 位置を中央（真ん中の線の場所）に合わせる */
     transform: rotate(45deg);
   }
   .view .navTrigger::after {
-    top: 0;
+    top: 10px; /* 位置を中央（真ん中の線の場所）に合わせる */
     transform: rotate(-45deg);
   }
 
