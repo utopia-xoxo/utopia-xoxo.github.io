@@ -572,88 +572,119 @@ h4 + .shortList {
       font-size: 1em;
   }
 
-  /* ===== ハンバーガーメニュー関連 ===== */
+  /* ===== ハンバーガーメニュー関連（きれいに整理しました） ===== */
 
-  /* ハンバーガーメニューアイコン */
-.navTrigger {
-  display: block !important;   /* ← 最優先で表示 */
-  position: fixed;             /* 右上に固定 */
-  top: 15px;                   /* 少し下に */
-  right: 15px;                 /* 右から15px */
-  width: 55px;                 /* ちょっと大きめ */
-  height: 55px;
-  z-index: 3000;               /* 最前面 */
-  cursor: pointer;
-}
+  /* 1. パソコン用のメインナビの横並び配置などをリセット */
+  .mainNav {
+      display: block;
+      width: 100%;
+      height: auto;
+      padding: 0;
+      background: transparent;
+  }
 
-.navTrigger::before {
-  content: '≡';                /* 三本線 */
-  display: inline-block;
-  width: 100%;
-  height: 100%;
-  font-size: 2.4rem;           /* 少し大きめ */
-  line-height: 55px;           /* 縦中央 */
-  text-align: center;
-  color: #333;                 /* 目立つ色 */
-  background: rgba(255,255,255,0.9); /* 白背景 */
-  border-radius: 6px;          /* 角丸 */
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-}
+  /* 2. ハンバーガーボタンを表示（シンプルな三本線） */
+  .navTrigger {
+    display: block !important;   /* パソコン用の隠す設定を上書き */
+    position: fixed;             /* 右上に固定 */
+    top: 20px;
+    right: 20px;
+    width: 30px;
+    height: 22px;
+    cursor: pointer;
+    z-index: 9999;               /* メニューより手前に */
+  }
 
-.view .navTrigger::before {
-  content: '×';                /* 開いたときは × */
-  color: #777;
-}
+  /* 三本線を描く（元々空のdivなので擬似要素を使います） */
+  .navTrigger, .navTrigger::before, .navTrigger::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: #314657;   /* サイトのテーマカラー（ネイビー） */
+    transition: all 0.3s ease;
+  }
+  .navTrigger::before { top: -8px; left: 0; }  /* 上の線 */
+  .navTrigger::after { top: 8px; left: 0; }    /* 下の線 */
 
-
-  /* ナビ全体（右からスライド） */
+  /* 3. ナビゲーション全体（最初は右の画面外に隠す） */
   .navs {
     position: fixed;
     top: 0;
     right: 0;
-    width: 70vw;
-    max-width: 300px;
+    width: 260px;                /* スマホメニューの横幅 */
     height: 100vh;
-    background: #fffb;
-    transform: translateX(100%);  /* 初期は右に隠す */
-    transition: .5s;
-    z-index: 2000;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    background: #eceae4;         /* サイトに馴染む背景色 */
+    box-shadow: -2px 0 8px rgba(0,0,0,0.1);
+    transform: translateX(100%);  /* 初期状態は右側に隠す */
+    transition: transform 0.4s ease;
+    z-index: 9998;
+    display: block;              /* 縦並びを崩さないようblockに */
   }
 
-  /* 表示時 */
+  /* 4. メニュー内部の余白調整 */
+  .navWrap {
+      width: 100%;          
+      height: 100%;
+      padding: 80px 25px;         /* 上にボタンと被らない余白 */
+      box-sizing: border-box;
+  }
+  
+  .navWrap ul {
+      margin-bottom: 40px;
+  }
+  .navWrap li {
+      margin: 15px 0;
+  }
+  .navWrap li a {
+      display: block;
+      padding: 5px 0;
+      font-size: 1.4rem;
+      color: #314657;
+  }
+
+  /* パソコン用のサイドナビ固定位置をスマホ用に解除 */
+  .sideNav {
+      position: static;
+      height: auto;
+      min-width: auto;
+  }
+  .sideNav::before {
+      display: none;             /* パソコン用の縦線を消す */
+  }
+  .sideNav li > a {
+      max-width: none;
+  }
+  .sideNav li > .js_active {
+      position: static;          /* JavaScriptの位置固定を解除 */
+  }
+
+
+  /* -------------------------------------------------------
+     【JavaScript連動】ボタンが押されて「view」がついたとき
+  ------------------------------------------------------- */
+  
+  /* メニューを右からスライドして表示 */
   .view.navs {
     transform: translateX(0);
   }
 
-  /* メニュー内部のラッパー */
-  .navWrap {
-      width: 100%;          
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
-      padding: 80px 20px;   /* 上に余白 */
-      box-sizing: border-box;
+  /* ボタンの真ん中の線を透明に */
+  .view .navTrigger {
+    background-color: transparent;
+  }
+  /* ボタンの上と下の線を傾けて「×」マークにする */
+  .view .navTrigger::before {
+    top: 0;
+    transform: rotate(45deg);
+  }
+  .view .navTrigger::after {
+    top: 0;
+    transform: rotate(-45deg);
   }
 
-  /* メニューリスト */
-  .sideNav {
-      width: 100%;
-      text-align: center;
-  }
-  .sideNav li {
-      margin: 1em 0;
-  }
-  .sideNav li a {
-      display: block;
-      padding: 10px;
-  }
 
   /* ===== ヘッダー・フッター調整 ===== */
-
   .mainHeader {
       flex-direction: column;
       margin: 0;
@@ -682,13 +713,13 @@ h4 + .shortList {
 /* ===== index（トップページ）だけ画面固定 ===== */
 @media screen and (max-width: 768px) {
   body.index {
-    overflow: hidden;   /* スクロール禁止 */
+    overflow: hidden;
     height: 100dvh;
     margin: 0;
     padding: 0;
     display: flex;
-    justify-content: center; /* 横中央 */
-    align-items: center;     /* 縦中央 */
+    justify-content: center;
+    align-items: center;
   }
 
   body.index .mainHeader {
@@ -717,111 +748,10 @@ h4 + .shortList {
 
 /* ===== 波文字リンクの色＆ホバー効果 ===== */
 .wave textPath a {
-  fill: #000; /* 通常の文字色 */
+  fill: #000;
   text-decoration: none;
   transition: fill 0.3s ease;
 }
-
 .wave textPath a:hover {
-  fill: #af7c3f; /* ホバー時の色（お好みで変更可） */
-
+  fill: #af7c3f;
 }
-
-/* =========================================================
-   ここからスマホ・レスポンシブ用の設定
-========================================================= */
-
-/* 1. 通常（パソコン画面）ではハンバーガーボタンを隠す */
-#navTrigger {
-  display: none;
-}
-
-/* 2. 画面横幅が768px以下のスマホサイズになったとき */
-@media screen and (max-width: 768px) {
-  
-  /* -------------------------------------------------------
-     ハンバーガーボタンを表示させ、三本線を描く
-  ------------------------------------------------------- */
-  #navTrigger {
-    display: block;
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    width: 30px;
-    height: 22px;
-    cursor: pointer;
-    z-index: 9999; /* 最前面に */
-  }
-
-  /* CSSだけで三本線を描く設定（中身が空のdiv用） */
-  #navTrigger, #navTrigger::before, #navTrigger::after {
-    content: "";
-    position: absolute;
-    width: 100%;
-    height: 2px;
-    background-color: #726c60; /* 三本線の色 */
-    transition: all 0.3s;
-  }
-  #navTrigger::before { top: -8px; left: 0; }  /* 上の線 */
-  #navTrigger::after { top: 8px; left: 0; }    /* 下の線 */
-
-
-  /* -------------------------------------------------------
-     スマホ用メニュー（.navWrap）の初期状態：画面外に隠す
-  ------------------------------------------------------- */
-  .navWrap {
-    position: fixed;
-    top: 0;
-    right: -100%; /* 最初は右側の画面外に完全に隠しておく */
-    width: 80%;   /* メニューの横幅（画面の80%） */
-    height: 100%;
-    background-color: #eceae4; /* サイト全体の背景色に合わせました */
-    box-shadow: -2px 0 8px rgba(0,0,0,0.1);
-    z-index: 9998;
-    padding: 80px 20px 20px 20px;
-    box-sizing: border-box;
-    transition: right 0.3s ease; /* スライドして出てくるアニメーション */
-  }
-
-  /* 縦並びになるように調整 */
-  .navWrap ul {
-    margin-bottom: 30px;
-  }
-  .navWrap li {
-    margin-bottom: 15px;
-    list-style: none;
-  }
-  .navWrap a {
-    font-size: 14px; /* スマホでタップしやすいように少し大きめに */
-    color: #726c60;
-    display: block;
-  }
-
-
-  /* -------------------------------------------------------
-     【超重要】JavaScriptで「view」クラスがついたときの動き
-  ------------------------------------------------------- */
-  /* .navs に .view がついたら、右からメニューを引っ張り出す */
-  .navs.view .navWrap {
-    right: 0;
-  }
-
-  /* ボタンの三本線をおしゃれに「×」の形に変形させる設定 */
-  .navs.view #navTrigger {
-    background-color: transparent; /* 真ん中の線を透明に */
-  }
-  .navs.view #navTrigger::before {
-    top: 0;
-    transform: rotate(45deg); /* 上の線を傾ける */
-  }
-  .navs.view #navTrigger::after {
-    top: 0;
-    transform: rotate(-45deg); /* 下の線を逆向きに傾ける */
-  }
-}
-
-
-
-
-
-
