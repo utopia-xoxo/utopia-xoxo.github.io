@@ -584,7 +584,7 @@ h4 + .shortList {
     /* スマホ表示での名前変換入力欄の調整 */
     .nameChange input[type="text"],
     .nameChange .enter {
-        width: 7em;         /* 💡スマホ時はバランス調整 */
+        width: 6em;         /* 💡スマホ時はバランス調整 */
         border-radius: 6px !important;
         -webkit-border-radius: 6px !important;
     }
