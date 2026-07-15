@@ -298,7 +298,7 @@ p {
 /* ⭕ 名前変換フォーム（入力欄とボタンを丸くして高さを綺麗に揃えました） */
 .nameChange input[type="text"],
 .nameChange .enter {
-    width: 5em;             /* 💡入力欄を少し長く調整 */
+    width: 10em;             /* 💡入力欄を少し長く調整 */
     padding: 6px 12px;       /* 枠の中の余白を調整 */
     border-radius: 6px !important; /* 💡角を確実に丸く */
     background: #fff;        /* 背景を白に */
@@ -584,7 +584,7 @@ h4 + .shortList {
     /* スマホ表示での名前変換入力欄の調整 */
     .nameChange input[type="text"],
     .nameChange .enter {
-        width: 10em;         /* 💡スマホ時は10emに伸ばしバランス調整 */
+        width: 7em;         /* 💡スマホ時はバランス調整 */
         border-radius: 6px !important;
         -webkit-border-radius: 6px !important;
     }
