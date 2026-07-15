@@ -295,29 +295,41 @@ p {
 
 /* メインコンテンツ */
 
-/* ⭕ 名前変換フォーム（入力欄とボタンを丸くして高さを綺麗に揃えました） */
+/* ⭕ 名前変換フォーム（入力欄を丸くし、高さをボタンと綺麗に揃えます） */
 .nameChange .enter {
     width: 10em;
-    padding: 6px 12px;       /* 枠の中の余白を調整 */
-    border-radius: 6px;      /* 角を丸く */
-    background: #fff;        /* 背景を白に */
+    padding: 6px 12px;
+    border-radius: 6px !important; /* 💡リセットCSSに負けないよう最優先にする */
+    background: #fff;
     border: 1px solid var(--darkColor);
-    line-height: 1.2;        /* 高さを一定に保つための設定 */
+    line-height: 1.2;
+    
+    /* 💡スマホや特定のブラウザでも角丸を維持するための設定 */
+    -webkit-border-radius: 6px !important;
+    -webkit-appearance: none;
+    appearance: none;
 }
+
 .nameChange input[type="submit"],
 .nameChange input[type="button"] {
-    padding: 5px 12px;       /* ボタンの縦を5pxに削り、横を12pxに調整 */
-    font-size: 0.95em;       /* ボタンの文字サイズを少しだけ控えめに */
-    line-height: 1.2;        /* 入力欄と行高さを統一して高さを揃える */
-    border-radius: 6px;      /* ボタンの角を丸く */
+    padding: 5px 12px;             /* ボタンの縦を少し削り、横を調整 */
+    font-size: 0.95em;             /* ボタンの文字サイズを少し控えめに */
+    line-height: 1.2;              /* 入力欄と行高さを統一 */
+    border-radius: 6px !important; /* 💡リセットCSSに負けないよう最優先にする */
     background: var(--lightColor);
     border: 1px solid var(--darkColor);
     cursor: pointer;
     transition: background 0.3s;
+    
+    /* 💡スマホでもボタンの角丸をキープ */
+    -webkit-border-radius: 6px !important;
+    -webkit-appearance: none;
+    appearance: none;
 }
+
 .nameChange input[type="submit"]:hover,
 .nameChange input[type="button"]:hover {
-    background: #fac07a;     /* ホバー時の色変更 */
+    background: #fac07a;
 }
 
 /* 長編リスト */
