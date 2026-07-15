@@ -311,7 +311,7 @@ p {
 .nameChange input[type="submit"],
 .nameChange input[type="button"] {
     color: #000;             /* 💡これをつけるとiOSでも文字が青くならず、確実に黒になります */
-    padding: 5px 12px;       /* ボタンの縦を5pxに削り、横を12pxに調整 */
+    padding: 5px 11px;       /* ボタンの縦を5pxに削り、横を12pxに調整 */
     font-size: 0.95em;       /* ボタンの文字サイズを少しだけ控えめに */
     line-height: 1.2;        /* 入力欄と行高さを統一して高さを揃える */
     border-radius: 6px !important; /* ボタンの角を丸く */
@@ -584,7 +584,7 @@ h4 + .shortList {
     /* スマホ表示での名前変換入力欄の調整 */
     .nameChange input[type="text"],
     .nameChange .enter {
-        width: 6em;         /* 💡スマホ時はバランス調整 */
+        width: 5.5em;         /* 💡スマホ時はバランス調整 */
         border-radius: 6px !important;
         -webkit-border-radius: 6px !important;
     }
