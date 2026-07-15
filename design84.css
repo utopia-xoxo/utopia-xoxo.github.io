@@ -1,6 +1,6 @@
 @charset "utf-8";
 
-@import url('https://fonts.googleapis.com/css2?family=Overpass:wght@300..500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Overpass:wght=300..500&display=swap');
 
 /* フォントのライセンス表記 */
 /*
@@ -295,17 +295,20 @@ p {
 
 /* メインコンテンツ */
 
-/* ⭕ 名前変換フォーム（入力欄とボタンを丸くしました） */
+/* ⭕ 名前変換フォーム（入力欄とボタンを丸くして高さを綺麗に揃えました） */
 .nameChange .enter {
     width: 10em;
     padding: 6px 12px;       /* 枠の中の余白を調整 */
     border-radius: 6px;      /* 角を丸く */
     background: #fff;        /* 背景を白に */
     border: 1px solid var(--darkColor);
+    line-height: 1.2;        /* 高さを一定に保つための設定 */
 }
 .nameChange input[type="submit"],
 .nameChange input[type="button"] {
-    padding: 6px 14px;       /* ボタンの余白 */
+    padding: 5px 12px;       /* ボタンの縦を5pxに削り、横を12pxに調整 */
+    font-size: 0.95em;       /* ボタンの文字サイズを少しだけ控えめに */
+    line-height: 1.2;        /* 入力欄と行高さを統一して高さを揃える */
     border-radius: 6px;      /* ボタンの角を丸く */
     background: var(--lightColor);
     border: 1px solid var(--darkColor);
@@ -573,6 +576,7 @@ h4 + .shortList {
     /* スマホ表示での名前変換入力欄の調整 */
     .nameChange .enter {
         width: 7em;
+        border-radius: 6px;  /* スマホでの角丸を確実に維持 */
     }
     .longList {
         display: block;
