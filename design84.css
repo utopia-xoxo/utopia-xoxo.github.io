@@ -300,6 +300,7 @@ p {
 .nameChange .enter {
     width: 10em;             /* 💡入力欄を少し長く調整 */
     padding: 6px 12px;       /* 枠の中の余白を調整 */
+    font-size: 1.5rem;  /* 文字を少し小さく */
     border-radius: 6px !important; /* 💡角を確実に丸く */
     background: #fff;        /* 背景を白に */
     border: 1px solid var(--darkColor);
